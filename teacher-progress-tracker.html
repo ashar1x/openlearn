@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - OpenLearn NGO Learning Platform</title>
+    <link rel="stylesheet" href="teacher-progress-tracker.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+    <style>
+        /* Additional styles for quiz performance section */
+        .quiz-performance {
+            margin-top: 2rem;
+        }
+        
+        .score-cell {
+            font-weight: 600;
+        }
+        
+        .score-poor {
+            color: var(--ngo-danger);
+        }
+        
+        .score-average {
+            color: var(--ngo-highlight);
+        }
+        
+        .score-good {
+            color: var(--ngo-success);
+        }
+        
+        .percentage {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Chat button styles */
+        .chat-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.25rem;
+            height: 2.25rem;
+            background-color: rgba(0, 180, 216, 0.15);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 0.5rem;
+            color: var(--ngo-accent);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .chat-btn:hover {
+            background-color: rgba(0, 180, 216, 0.25);
+            border-color: var(--ngo-accent);
+            transform: scale(1.05);
+        }
+
+        .chat-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Updated table row to accommodate chat button */
+        .table-row-with-chat {
+            display: grid;
+            grid-template-columns: 1fr 2.75rem 8rem 8rem 8rem;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .table-head-with-chat {
+            grid-template-columns: 1fr 2.75rem 8rem 8rem 8rem !important;
+        }
+
+        @media (max-width: 1023px) {
+            .table-row-with-chat {
+                grid-template-columns: 1fr 2.5rem 6.5rem 6.5rem 6.5rem;
+            }
+            .table-head-with-chat {
+                grid-template-columns: 1fr 2.5rem 6.5rem 6.5rem 6.5rem !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .table-row-with-chat {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                padding: 0.75rem;
+            }
+            .chat-btn {
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo Section -->
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h2>OpenLearn NGO Learning Platform</h2>
+                        <p>School Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="sidebar-nav">
+                <a href="teacher-dashboard.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="teacher-class.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Classes</span>
+                </a>
+                <a href="teacher-progress-tracker.html" class="nav-item active">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                    </svg>
+                    <span>Progress Tracker</span>
+                </a>
+                <a href="teacher-materials.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    <span>Material Sharing</span>
+                </a>
+                <a href="teacher-helpdesk.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Helpdesk</span>
+                </a>
+                <a href="teacher-quiz-create.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Quiz/Assignment Creation</span>
+                </a>
+                <a href="teacher-leaderboard.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Leaderboard</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <p>Version 1.0.0</p>
+                <p>© 2025 OpenLearn NGO Learning Platform</p>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Teacher Portal</h1>
+                </div>
+                <div class="topbar-right">
+                    <div class="role-badge">Teacher - TCH-2024-042</div>
+                    <a href="#logout-confirm" class="logout-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="main-content" role="main">
+                <!-- Late Submissions Section -->
+                <section class="panel late-submissions" aria-labelledby="late-submissions-title">
+                    <header class="panel-header">
+                        <div class="title-group">
+                            <h1 id="late-submissions-title">Late Assignment Submissions</h1>
+                            <p class="subtitle">List of all the struggling students with late submissions</p>
+                        </div>
+
+                        <div class="header-controls">
+                            <label class="search-wrapper" role="search" aria-label="Search students">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" focusable="false">
+                                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2"/>
+                                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                </svg>
+                                <input type="search" id="searchInput" placeholder="Search by Names..." aria-label="Search by Names">
+                            </label>
+
+                            <div class="help-badge" aria-live="polite">
+                                <span class="help-label">Students who need Help</span>
+                                <span class="help-count" id="helpCount">0</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <div class="submissions-card" role="region" aria-label="Late submissions table">
+                        <div class="table-head table-head-with-chat" role="row">
+                            <div class="cell cell-student">Student Names</div>
+                            <div class="cell" style="text-align: center;">Chat</div>
+                            <div class="cell">Assignment 3 <span class="cell-date">15/12/2025</span></div>
+                            <div class="cell">Assignment 2 <span class="cell-date">25/08/2025</span></div>
+                            <div class="cell">Assignment 1 <span class="cell-date">14/06/2025</span></div>
+                        </div>
+
+                        <ul class="table-body" role="list" id="assignmentsTable">
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Ermish" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Ermish</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Ermish" class="chat-btn" title="Chat with Ermish">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell" role="cell"><span class="status status-missing" aria-label="Missing">Missing</span></div>
+                                <div class="cell" role="cell"><span class="status status-late" aria-label="Late">Late</span></div>
+                                <div class="cell" role="cell"><span class="status status-late" aria-label="Late">Late</span></div>
+                            </li>
+
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Ali Haider" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Ali Haider</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Ali Haider" class="chat-btn" title="Chat with Ali Haider">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell" role="cell"><span class="status status-missing">Missing</span></div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                            </li>
+
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Ashar" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Ashar</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Ashar" class="chat-btn" title="Chat with Ashar">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                                <div class="cell" role="cell"><span class="status status-missing">Missing</span></div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                            </li>
+
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Aila" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Aila</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Aila" class="chat-btn" title="Chat with Aila">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                                <div class="cell" role="cell"><span class="status status-missing">Missing</span></div>
+                            </li>
+
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Zayaan" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Zayaan</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Zayaan" class="chat-btn" title="Chat with Zayaan">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                                <div class="cell" role="cell"><span class="status status-late">Late</span></div>
+                                <div class="cell" role="cell"><span class="status status-missing">Missing</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- Quiz Performance Section -->
+                <section class="panel quiz-performance" aria-labelledby="quiz-performance-title">
+                    <header class="panel-header">
+                        <div class="title-group">
+                            <h1 id="quiz-performance-title">Poor Quiz Performance</h1>
+                            <p class="subtitle">Students scoring below 60% on recent quizzes</p>
+                        </div>
+                    </header>
+
+                    <div class="submissions-card" role="region" aria-label="Quiz performance table">
+                        <div class="table-head table-head-with-chat" role="row">
+                            <div class="cell cell-student">Student Names</div>
+                            <div class="cell" style="text-align: center;">Chat</div>
+                            <div class="cell">Quiz 3 <span class="cell-date">20/11/2025</span></div>
+                            <div class="cell">Quiz 2 <span class="cell-date">05/10/2025</span></div>
+                            <div class="cell">Quiz 1 <span class="cell-date">15/09/2025</span></div>
+                        </div>
+
+                        <ul class="table-body" role="list" id="quizTable">
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Fatima" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Fatima</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Fatima" class="chat-btn" title="Chat with Fatima">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell score-cell score-poor" role="cell">45/100 <span class="percentage">(45%)</span></div>
+                                <div class="cell score-cell score-poor" role="cell">52/100 <span class="percentage">(52%)</span></div>
+                                <div class="cell score-cell score-poor" role="cell">38/100 <span class="percentage">(38%)</span></div>
+                            </li>
+
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Hassan" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Hassan</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Hassan" class="chat-btn" title="Chat with Hassan">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell score-cell score-poor" role="cell">50/100 <span class="percentage">(50%)</span></div>
+                                <div class="cell score-cell score-poor" role="cell">48/100 <span class="percentage">(48%)</span></div>
+                                <div class="cell score-cell score-poor" role="cell">55/100 <span class="percentage">(55%)</span></div>
+                            </li>
+
+                            <li class="table-row table-row-with-chat student-row" role="row" data-student="Zainab" data-needs-help="true">
+                                <div class="cell cell-student" role="cell">Zainab</div>
+                                <div class="cell" role="cell" style="display: flex; justify-content: center;">
+                                    <a href="teacher-chat.html?student=Zainab" class="chat-btn" title="Chat with Zainab">
+                                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                                        </svg>
+                                    </a>
+                                </div>
+                                <div class="cell score-cell score-poor" role="cell">42/100 <span class="percentage">(42%)</span></div>
+                                <div class="cell score-cell score-poor" role="cell">58/100 <span class="percentage">(58%)</span></div>
+                                <div class="cell score-cell score-poor" role="cell">47/100 <span class="percentage">(47%)</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+
+            <!-- Logout Confirmation Modal -->
+            <div id="logout-confirm" class="modal-overlay">
+                <div class="modal-card logout-modal">
+                    <div class="warning-icon">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                            <line x1="12" y1="9" x2="12" y2="13"/>
+                            <line x1="12" y1="17" x2="12.01" y2="17"/>
+                        </svg>
+                    </div>
+                    <h2 class="logout-title">Confirm Logout</h2>
+                    <p class="logout-message">Are you sure you want to logout? You'll need to sign in again to access your account.</p>
+                    <div class="modal-actions">
+                        <a href="#" class="btn btn-cancel">Cancel</a>
+                        <a href="login.html" class="btn btn-logout">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Calculate total students who need help and update counter
+        function updateHelpCounter() {
+            const studentsNeedingHelp = new Set();
+            
+            document.querySelectorAll('.student-row[data-needs-help="true"]').forEach(row => {
+                const studentName = row.getAttribute('data-student');
+                if (studentName) {
+                    studentsNeedingHelp.add(studentName);
+                }
+            });
+            
+            const helpCount = document.getElementById('helpCount');
+            if (helpCount) {
+                helpCount.textContent = studentsNeedingHelp.size;
+            }
+        }
+
+        // Search functionality
+        function setupSearch() {
+            const searchInput = document.getElementById('searchInput');
+            if (!searchInput) return;
+            
+            searchInput.addEventListener('input', function(e) {
+                const searchTerm = e.target.value.toLowerCase().trim();
+                const allRows = document.querySelectorAll('.student-row');
+                
+                allRows.forEach(row => {
+                    const studentName = row.getAttribute('data-student').toLowerCase();
+                    if (studentName.includes(searchTerm)) {
+                        row.style.display = 'grid';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+            });
+        }
+
+        // Initialize when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            updateHelpCounter();
+            setupSearch();
+        });
+    </script>
+</body>
+</html>

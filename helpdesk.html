@@ -1,0 +1,96 @@
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Helpdesk Request</title>
+        <style>
+            /* Minimal spacing so the back button is visible without site CSS */
+            body{font-family:system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;margin:24px}
+            .back-btn{display:inline-block;margin-bottom:16px;text-decoration:none;color:#0366d6}
+            .page-title{margin:0 0 16px 0}
+            .form-group{margin-bottom:12px}
+            .submit-btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px}
+            .attachment-zone input[type=file]{display:none}
+            .modal-overlay{display:none}
+            /* If you rely on the in-page anchor success modal, you can style/show it via :target */
+            .modal-overlay:target{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center}
+            .modal-card{background:#fff;padding:20px;border-radius:8px;max-width:420px;width:90%}
+        </style>
+    </head>
+    <body>
+
+        <!-- Back button to return to login page -->
+        <a href="login.html" class="back-btn" aria-label="Back to login">← Back to Login</a>
+
+        <!-- Helpdesk Form (only content on this page) -->
+        <main>
+            <h1 class="page-title">Submit Helpdesk Request</h1>
+
+            <form method="post" action="#helpdesk-success" style="max-width:720px">
+                <!-- Issue Type -->
+                <div class="form-group">
+                    <label for="issue-type">Issue Type</label>
+                    <div>
+                        <select id="issue-type" name="issue-type" required>
+                            <option value="">Select issue type</option>
+                            <option value="assignment">Assignment Related</option>
+                            <option value="material">Study Material Access</option>
+                            <option value="technical">Technical Issue</option>
+                            <option value="general">General Query</option>
+                            <option value="exam">Exam Related</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Your ID -->
+                <div class="form-group">
+                    <label for="user-id">Your ID</label>
+                    <input type="text" id="user-id" name="user-id" placeholder="STD-2024-001" required>
+                </div>
+
+                <!-- Description -->
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="6" placeholder="Please describe your issue in detail..." required></textarea>
+                </div>
+
+                <!-- Attachment -->
+                <div class="form-group">
+                    <label for="attachment">Attachment (Optional)</label>
+                    <label class="attachment-zone" for="attachment" style="display:block;cursor:pointer;border:1px dashed #ccc;padding:12px;border-radius:6px">
+                        <div style="display:flex;flex-direction:column;align-items:flex-start;gap:6px">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="attachment-icon">
+                                <path d="m21.44 11.05-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+                            </svg>
+                            <div>
+                                <div>Click to attach files</div>
+                                <div style="font-size:12px;color:#666">Supported: PDF, DOC, DOCX, JPG, PNG (Max 5MB)</div>
+                            </div>
+                        </div>
+                        <input type="file" id="attachment" name="attachment" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png">
+                    </label>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="submit-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="22" y1="2" x2="11" y2="13"/>
+                        <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                    </svg>
+                    <span>Submit Request</span>
+                </button>
+            </form>
+        </main>
+
+        <div id="helpdesk-success" class="modal-overlay" role="dialog" aria-modal="true">
+            <a href="#" class="modal-overlay-close" style="position:absolute;inset:0;"></a>
+            <div class="modal-card">
+                <h2>Request Submitted Successfully!</h2>
+                <p>Your helpdesk request has been submitted. We will respond within 24 hours.</p>
+                <a href="login.html" class="btn" style="display:inline-block;margin-top:12px;padding:8px 12px;background:#0366d6;color:#fff;text-decoration:none;border-radius:4px">Close</a>
+            </div>
+        </div>
+
+    </body>
+    </html>

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helpdesk Management - OpenLearn NGO Learning Platform</title>
+    <link rel="stylesheet" href="helpdesk-admin.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo Section -->
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <!-- Graduation Cap Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h2>OpenLearn NGO Learning Platform</h2>
+                        <p>School Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="sidebar-nav">
+                <a href="admin-dashboard.html" class="nav-item">
+                    <!-- Dashboard Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="manage-users.html" class="nav-item">
+                    <!-- Users Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Manage Users</span>
+                </a>
+                <a href="helpdesk-admin.html" class="nav-item active">
+                    <!-- Help Circle Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Helpdesk</span>
+                </a>
+                <a href="security.html" class="nav-item">
+                    <!-- Shield Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    <span>Security</span>
+                </a>
+                <a href="admin-analytics.html" class="nav-item">
+                    <!-- User Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Analytics</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <p>Version 1.0.0</p>
+                <p>© 2025 OpenLearn NGO Learning Platform</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Admin Portal</h1>
+                </div>
+                <div class="topbar-right">
+                    <!-- Role Badge -->
+                    <div class="role-badge">Admin - ADM-001</div>
+
+                    <!-- Logout Button -->
+                    <a href="#logout-confirm" class="logout-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="main-content">
+                <div class="content-wrapper">
+                    <!-- Page Header -->
+                    <div class="page-header">
+                        <h1 class="page-title">Helpdesk Management</h1>
+                        <div class="header-stats">
+                            <div class="stat-pill">
+                                <span class="stat-label">Total:</span>
+                                <span class="stat-value">5</span>
+                            </div>
+                            <div class="stat-pill stat-pill-danger">
+                                <span>Open: 3</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Search and Filter -->
+                    <div class="search-filter-grid">
+                        <div class="search-wrapper">
+                            <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"/>
+                                <path d="m21 21-4.35-4.35"/>
+                            </svg>
+                            <input type="text" id="searchInput" class="search-input" placeholder="Search by ID, user name, or description...">
+                        </div>
+                        <div class="filter-wrapper">
+                            <select id="statusFilter" class="filter-select">
+                                <option value="all">All Tickets</option>
+                                <option value="open">Open</option>
+                                <option value="in-progress">In Progress</option>
+                                <option value="resolved">Resolved</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Tickets Table -->
+                    <div class="table-container">
+                        <div class="table-wrapper">
+                            <table class="tickets-table">
+                                <thead>
+                                    <tr>
+                                        <th>Ticket ID</th>
+                                        <th>Type</th>
+                                        <th>User</th>
+                                        <th>Role</th>
+                                        <th>Status</th>
+                                        <th>Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="ticketsTableBody">
+                                    <tr data-status="open" data-description="Unable to submit mathematics assignment">
+                                        <td class="ticket-id">HD-001</td>
+                                        <td><span class="type-badge">Assignment</span></td>
+                                        <td>
+                                            <div class="user-info">
+                                                <p class="user-name">John Doe</p>
+                                                <p class="user-id">STD-2024-001</p>
+                                            </div>
+                                        </td>
+                                        <td class="ticket-role">Student</td>
+                                        <td><span class="status-badge status-open">Open</span></td>
+                                        <td class="ticket-date">2024-10-30</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn-view">View</button>
+                                                <button class="btn-resolve">Resolve</button>
+                                                <button class="btn-delete">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="resolved" data-description="Cannot access chemistry study materials">
+                                        <td class="ticket-id">HD-002</td>
+                                        <td><span class="type-badge">Access</span></td>
+                                        <td>
+                                            <div class="user-info">
+                                                <p class="user-name">Jane Smith</p>
+                                                <p class="user-id">STD-2024-015</p>
+                                            </div>
+                                        </td>
+                                        <td class="ticket-role">Student</td>
+                                        <td><span class="status-badge status-resolved">Resolved</span></td>
+                                        <td class="ticket-date">2024-10-29</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn-view">View</button>
+                                                <button class="btn-delete">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="open" data-description="Upload feature not working properly">
+                                        <td class="ticket-id">HD-003</td>
+                                        <td><span class="type-badge">Technical</span></td>
+                                        <td>
+                                            <div class="user-info">
+                                                <p class="user-name">Prof. Wilson</p>
+                                                <p class="user-id">TCH-2024-042</p>
+                                            </div>
+                                        </td>
+                                        <td class="ticket-role">Teacher</td>
+                                        <td><span class="status-badge status-open">Open</span></td>
+                                        <td class="ticket-date">2024-10-29</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn-view">View</button>
+                                                <button class="btn-resolve">Resolve</button>
+                                                <button class="btn-delete">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="in-progress" data-description="Query about exam schedule">
+                                        <td class="ticket-id">HD-004</td>
+                                        <td><span class="type-badge">General</span></td>
+                                        <td>
+                                            <div class="user-info">
+                                                <p class="user-name">Mike Johnson</p>
+                                                <p class="user-id">STD-2024-032</p>
+                                            </div>
+                                        </td>
+                                        <td class="ticket-role">Student</td>
+                                        <td><span class="status-badge status-progress">In Progress</span></td>
+                                        <td class="ticket-date">2024-10-28</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn-view">View</button>
+                                                <button class="btn-resolve">Resolve</button>
+                                                <button class="btn-delete">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr data-status="open" data-description="Clarification needed for exam format">
+                                        <td class="ticket-id">HD-005</td>
+                                        <td><span class="type-badge">Exam</span></td>
+                                        <td>
+                                            <div class="user-info">
+                                                <p class="user-name">Sarah Williams</p>
+                                                <p class="user-id">STD-2024-045</p>
+                                            </div>
+                                        </td>
+                                        <td class="ticket-role">Student</td>
+                                        <td><span class="status-badge status-open">Open</span></td>
+                                        <td class="ticket-date">2024-10-28</td>
+                                        <td>
+                                            <div class="action-buttons">
+                                                <button class="btn-view">View</button>
+                                                <button class="btn-resolve">Resolve</button>
+                                                <button class="btn-delete">Delete</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const statusFilter = document.getElementById('statusFilter');
+        const tableRows = document.querySelectorAll('#ticketsTableBody tr');
+
+        searchInput.addEventListener('input', filterTable);
+        statusFilter.addEventListener('change', filterTable);
+
+        function filterTable() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const selectedStatus = statusFilter.value;
+
+            tableRows.forEach(row => {
+                const ticketId = row.querySelector('.ticket-id').textContent.toLowerCase();
+                const userName = row.querySelector('.user-name').textContent.toLowerCase();
+                const description = row.getAttribute('data-description').toLowerCase();
+                const rowStatus = row.getAttribute('data-status');
+
+                const matchesSearch = ticketId.includes(searchTerm) || 
+                                     userName.includes(searchTerm) || 
+                                     description.includes(searchTerm);
+
+                let matchesFilter = true;
+                if (selectedStatus !== 'all') {
+                    matchesFilter = rowStatus === selectedStatus;
+                }
+
+                if (matchesSearch && matchesFilter) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+        }
+
+        // View button handlers
+        document.querySelectorAll('.btn-view').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const ticketId = row.querySelector('.ticket-id').textContent;
+                const userName = row.querySelector('.user-name').textContent;
+                const description = row.getAttribute('data-description');
+                alert(`Ticket: ${ticketId}\nUser: ${userName}\nDescription: ${description}`);
+            });
+        });
+
+        // Resolve button handlers
+        document.querySelectorAll('.btn-resolve').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const ticketId = row.querySelector('.ticket-id').textContent;
+                if (confirm(`Mark ticket ${ticketId} as resolved?`)) {
+                    row.setAttribute('data-status', 'resolved');
+                    const statusBadge = row.querySelector('.status-badge');
+                    statusBadge.className = 'status-badge status-resolved';
+                    statusBadge.textContent = 'Resolved';
+                    
+                    // Hide the resolve button
+                    this.style.display = 'none';
+                    
+                    alert('Ticket marked as resolved!');
+                }
+            });
+        });
+
+        // Delete button handlers
+        document.querySelectorAll('.btn-delete').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const row = this.closest('tr');
+                const ticketId = row.querySelector('.ticket-id').textContent;
+                if (confirm(`Are you sure you want to delete ticket ${ticketId}?`)) {
+                    row.remove();
+                    alert('Ticket deleted successfully!');
+                }
+            });
+        });
+    </script>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-confirm" class="modal-overlay">
+        <div class="modal-card logout-modal">
+            <div class="warning-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+            </div>
+            <h2 class="logout-title">Confirm Logout</h2>
+            <p class="logout-message">Are you sure you want to logout? You'll need to sign in again to access your account.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="login.html" class="btn btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

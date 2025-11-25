@@ -1,0 +1,685 @@
+/* ===================================
+   OpenLearn NGO Learning Platform
+   Student Dashboard Styles
+   =================================== */
+
+/* ===================================
+   CSS Variables (Color Palette)
+   =================================== */
+   :root {
+    /* NGO Color Palette */
+    --ngo-navy: #0F172A;
+    --ngo-surface: #1E293B;
+    --ngo-border: #334155;
+    --ngo-accent: #00B4D8;
+    --ngo-highlight: #FFD700;
+    --ngo-text-primary: #E2E8F0;
+    --ngo-text-secondary: #94A3B8;
+    --ngo-success: #10B981;
+    --ngo-danger: #DC2626;
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Border Radius */
+    --radius-sm: 0.5rem;  /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 1rem;    /* 16px */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    
+    /* Sidebar */
+    --sidebar-width: 16rem; /* 256px */
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ngo-text-primary);
+    background-color: var(--ngo-navy);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: auto;
+}
+
+/* ===================================
+   Modals (CSS-only using :target)
+   =================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, 0.75);
+    display: none; /* default hidden */
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 3000;
+}
+
+.modal-overlay:target {
+    display: flex; /* show when targeted */
+}
+
+.modal-card {
+    width: 100%;
+    max-width: 28rem; /* ~448px */
+    background: var(--ngo-surface);
+    border: 2px solid var(--ngo-accent);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 1.25rem;
+}
+
+.modal-card.create-modal {
+    padding: 1.5rem;
+    max-width: 34rem;
+}
+
+.modal-title {
+    font-family: var(--font-heading);
+    font-size: 1.125rem;
+    color: var(--ngo-text-primary);
+    margin-bottom: 1rem;
+}
+
+.modal-title {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--ngo-text-primary);
+}
+
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.modal-label {
+    font-size: 0.875rem;
+    color: var(--ngo-text-secondary);
+}
+
+.modal-label {
+    color: var(--ngo-text-secondary);
+    margin-bottom: 0.25rem;
+    display: block;
+}
+
+.modal-input {
+    height: 2.75rem;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--ngo-border);
+    background: var(--ngo-navy);
+    color: var(--ngo-text-primary);
+    padding: 0 0.75rem;
+}
+
+.modal-input {
+    height: 3rem;
+    border-radius: 0.6rem;
+    border: 1px solid rgba(255,255,255,0.03);
+    background: rgba(2,6,23,0.45);
+    color: var(--ngo-text-primary);
+    padding: 0 0.9rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.5rem;
+    padding: 0 1rem;
+    border-radius: 9999px;
+    font-weight: 600;
+}
+
+.btn-primary {
+    background: var(--ngo-accent);
+    color: var(--ngo-navy);
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, rgba(0,180,216,1), rgba(0,150,190,1));
+    color: var(--ngo-navy);
+    border-radius: 0.6rem;
+    padding: 0.45rem 1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: var(--ngo-surface);
+    color: var(--ngo-text-primary);
+    border: 1px solid var(--ngo-border);
+}
+
+.btn-cancel {
+    background: rgba(255,255,255,0.03);
+    color: var(--ngo-text-primary);
+    border-radius: 0.6rem;
+    padding: 0.45rem 1rem;
+}
+
+.btn-cancel:hover {
+    background: rgba(255,255,255,0.05);
+}
+
+.btn-block {
+    width: 100%;
+    height: 3rem;
+}
+
+.modal-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--ngo-accent);
+    margin-bottom: 1rem;
+}
+
+.modal-success {
+    padding: 1.25rem;
+    background: var(--ngo-navy);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.modal-success h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+/* Logout Confirmation Modal */
+.logout-modal {
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.warning-icon {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.25rem;
+}
+
+.warning-icon svg {
+    color: #FFD700; /* Yellow */
+    fill: #FFD700;
+    stroke: #000;
+    stroke-width: 2.5;
+}
+
+.logout-title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--ngo-text-primary);
+    margin-bottom: 1rem;
+}
+
+.logout-message {
+    font-size: 0.9375rem;
+    color: var(--ngo-text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    max-width: 24rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn-cancel {
+    background-color: var(--ngo-surface);
+    color: var(--ngo-text-primary);
+    border: 1px solid var(--ngo-border);
+    flex: 1;
+}
+
+.btn-cancel:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--ngo-accent);
+}
+
+.btn-logout {
+    background-color: var(--ngo-danger);
+    color: white;
+    flex: 1;
+    border: none;
+}
+
+.btn-logout:hover {
+    background-color: #B91C1C;
+    opacity: 0.9;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+}
+
+/* ===================================
+   Dashboard Container
+   =================================== */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    align-items: stretch;
+    overflow: visible;
+}
+
+/* ===================================
+   Sidebar
+   =================================== */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ngo-surface);
+    border-right: 1px solid var(--ngo-border);
+}
+
+/* Sidebar Header (Logo) */
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--ngo-border);
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--ngo-accent);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-icon svg {
+    color: var(--ngo-navy);
+}
+
+.logo-text h2 {
+    font-size: 1rem;
+    color: var(--ngo-text-primary);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    color: var(--ngo-text-secondary);
+}
+
+/* Sidebar Navigation */
+.sidebar-nav {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    color: var(--ngo-text-primary);
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.nav-item:hover {
+    background-color: rgba(0, 180, 216, 0.1);
+}
+
+.nav-item.active {
+    background-color: var(--ngo-accent);
+    color: var(--ngo-navy);
+}
+
+.nav-item svg {
+    flex-shrink: 0;
+}
+
+.nav-item span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--ngo-border);
+}
+
+.sidebar-footer p {
+    font-size: 0.75rem;
+    color: var(--ngo-text-secondary);
+    line-height: 1.4;
+}
+
+/* ===================================
+   Main Wrapper
+   =================================== */
+.main-wrapper {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    overflow: hidden;
+}
+
+/* ===================================
+   Top Bar
+   =================================== */
+.topbar {
+    height: 4rem;
+    display: flex;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background-color: var(--ngo-surface);
+    border-bottom: 1px solid var(--ngo-border);
+}
+
+.topbar-left h1 {
+    font-size: 1.125rem;
+    color: var(--ngo-text-primary);
+    font-weight: 500;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Notification Button */
+.notification-btn {
+    position: relative;
+    padding: 0.5rem;
+    background-color: var(--ngo-border);
+    border: none;
+    border-radius: var(--radius-sm);
+    transition: opacity 0.2s ease;
+}
+
+.notification-btn:hover {
+    opacity: 0.8;
+}
+
+.notification-btn svg {
+    color: var(--ngo-text-primary);
+}
+
+.notification-dot {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--ngo-highlight);
+    border-radius: 50%;
+}
+
+/* Role Badge */
+.role-badge {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--ngo-accent);
+    border-radius: var(--radius-sm);
+    color: var(--ngo-accent);
+    font-size: 0.875rem;
+}
+
+/* Logout Button */
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--ngo-danger);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.logout-btn:hover {
+    opacity: 0.8;
+}
+
+/* ===================================
+   Main Content
+   =================================== */
+.main-content {
+    flex: 1 1 auto;
+    overflow-y: auto;
+    background-color: var(--ngo-navy);
+    -webkit-overflow-scrolling: touch;
+
+}
+
+.content-wrapper {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 1.875rem;
+    color: var(--ngo-text-primary);
+    margin-bottom: 2rem;
+}
+
+        .container { max-width: 1440px; margin: 0 auto; padding: 2rem 3rem; max-height: calc(100vh - 6rem); overflow-y: auto; padding-right: 12px;}
+
+.breadcrumb { color: #94A3B8; font-size: 0.875rem; }
+.page-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .breadcrumb a { color: #00B4D8; text-decoration: none; }
+        .controls { display: flex; gap: 1rem; }
+        .form-select { padding: 0.75rem 1rem; background-color: #1E293B; border: 1px solid #334155; border-radius: 8px; color: #E2E8F0; font-size: 0.875rem; }
+        .btn { padding: 0.75rem 1.5rem; border: none; border-radius: 8px; cursor: pointer; font-size: 0.875rem; font-weight: 600; transition: all 0.3s ease; }
+        .btn-primary { background: linear-gradient(135deg, #00B4D8, #0096C7); color: white; }
+        .top-three { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+        .podium-card { background-color: #1E293B; padding: 2rem 1.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); text-align: center; position: relative; }
+        .podium-card.first { background: linear-gradient(135deg, #FFD700, #FFA500); transform: translateY(-10px); }
+        .podium-card.second { background: linear-gradient(135deg, #C0C0C0, #A8A8A8); }
+        .podium-card.third { background: linear-gradient(135deg, #CD7F32, #B87333); }
+        .rank-badge { width: 60px; height: 60px; margin: 0 auto 1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: 700; background-color: rgba(0, 0, 0, 0.2); color: white; }
+        .student-avatar-large { width: 80px; height: 80px; margin: 0 auto 1rem; background: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.5rem; color: #0F172A; }
+        .podium-card h3 { font-size: 1.125rem; margin-bottom: 0.25rem; color: white; }
+        .podium-card .student-id { font-size: 0.75rem; color: rgba(255, 255, 255, 0.8); margin-bottom: 1rem; }
+        .score-display { font-size: 2rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+        .score-label { font-size: 0.875rem; color: rgba(255, 255, 255, 0.9); }
+        .badge-showcase { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+        .badge-icon { width: 35px; height: 35px; background-color: rgba(0, 0, 0, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+        .leaderboard-section { background-color: #1E293B; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2); }
+        .section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+        .section-header h3 { font-size: 1.25rem; color: #E2E8F0; }
+        table { width: 100%; border-collapse: collapse; }
+        thead { background-color: #0F172A; }
+        th { padding: 1rem; text-align: left; font-size: 0.875rem; font-weight: 600; color: #00B4D8; border-bottom: 2px solid #334155; }
+        td { padding: 1rem; font-size: 0.875rem; border-bottom: 1px solid #334155; }
+        tbody tr:hover { background-color: #0F172A; }
+        .rank-cell { font-size: 1.25rem; font-weight: 700; color: #FFD700; }
+        .student-info { display: flex; align-items: center; gap: 0.75rem; }
+        .student-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, #00B4D8, #0096C7); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 600; color: white; }
+        .student-details h4 { font-size: 0.875rem; color: #E2E8F0; margin-bottom: 0.125rem; }
+        .student-id-text { font-size: 0.75rem; color: #64748B; }
+        .score-cell { font-weight: 700; color: #00B4D8; font-size: 1rem; }
+        .badge-cell { display: flex; gap: 0.25rem; }
+
+/* ===================================
+   Status Badges
+   =================================== */
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-open {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--ngo-danger);
+}
+
+.status-resolved {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: var(--ngo-success);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 4rem;
+    }
+    
+    .logo-text,
+    .nav-item span {
+        display: none;
+    }
+    
+    .sidebar-header {
+        padding: 1rem;
+    }
+    
+    .logo-wrapper {
+        justify-content: center;
+    }
+    
+    .nav-item {
+        justify-content: center;
+        padding: 0.75rem;
+    }
+
+    .sidebar-footer {
+        display: none;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .action-buttons-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    .topbar {
+        padding: 1rem;
+    }
+
+    .topbar-left h1 {
+        font-size: 1rem;
+    }
+
+    .role-badge {
+        display: none;
+    }
+    
+    .table-container {
+        overflow-x: auto;
+    }
+
+    .page-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* ===================================
+   Scrollbar Styling
+   =================================== */
+.sidebar-nav::-webkit-scrollbar,
+.main-content::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.sidebar-nav::-webkit-scrollbar-track,
+.main-content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb,
+.main-content::-webkit-scrollbar-thumb {
+    background-color: var(--ngo-border);
+    border-radius: 0.25rem;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover,
+.main-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--ngo-accent);
+}
+
+@media (max-width: 480px) {
+    .sidebar {
+        width: 3rem;
+    }
+
+    .notification-btn {
+        display: none;
+    }
+
+    .logout-btn span {
+        display: none;
+    }
+}

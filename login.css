@@ -1,0 +1,629 @@
+/* ===================================
+   OpenLearn NGO Learning Platform
+   Login Page Styles
+   =================================== */
+
+/* ===================================
+   CSS Variables (Color Palette)
+   =================================== */
+   :root {
+    /* NGO Color Palette */
+    --ngo-navy: #0F172A;
+    --ngo-surface: #1E293B;
+    --ngo-border: #334155;
+    --ngo-accent: #00B4D8;
+    --ngo-highlight: #FFD700;
+    --ngo-text-primary: #E2E8F0;
+    --ngo-text-secondary: #94A3B8;
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Border Radius */
+    --radius-sm: 0.5rem;  /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 1rem;    /* 16px */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ngo-text-primary);
+    background-color: var(--ngo-navy);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* ===================================
+   Main Container
+   =================================== */
+.login-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--ngo-navy);
+}
+
+/* ===================================
+   Left Panel - Branding
+   =================================== */
+.branding-panel {
+    display: none;
+    background-color: var(--ngo-surface);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.branding-content {
+    max-width: 28rem;
+    text-align: center;
+}
+
+.logo-container {
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--ngo-accent);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.logo-icon {
+    color: var(--ngo-navy);
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.brand-title {
+    font-size: 2.25rem; /* 36px */
+    color: var(--ngo-text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.brand-subtitle {
+    font-size: 1.25rem; /* 20px */
+    color: var(--ngo-highlight);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.brand-description {
+    font-size: 1rem;
+    color: var(--ngo-text-secondary);
+    line-height: 1.75;
+}
+
+/* ===================================
+   Right Panel - Login Form
+   =================================== */
+.form-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 28rem;
+}
+
+.form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-title {
+    font-size: 1.875rem; /* 30px */
+    color: var(--ngo-text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-subtitle {
+    color: var(--ngo-text-secondary);
+    font-size: 1rem;
+}
+
+/* ===================================
+   Form Elements
+   =================================== */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    color: var(--ngo-text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* ===================================
+   Select Dropdown
+   =================================== */
+.select-wrapper {
+    position: relative;
+}
+
+.form-select {
+    width: 100%;
+    height: 3rem;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    background-color: var(--ngo-surface);
+    border: 1px solid var(--ngo-border);
+    border-radius: var(--radius-sm);
+    color: var(--ngo-text-primary);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.2s ease;
+}
+
+.form-select:hover {
+    border-color: var(--ngo-accent);
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--ngo-accent);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+.form-select option {
+    background-color: var(--ngo-surface);
+    color: var(--ngo-text-primary);
+}
+
+.select-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ngo-text-secondary);
+    pointer-events: none;
+}
+
+/* ===================================
+   Input Fields
+   =================================== */
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ngo-text-secondary);
+    pointer-events: none;
+}
+
+.form-input {
+    width: 100%;
+    height: 3rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    background-color: var(--ngo-surface);
+    border: 1px solid var(--ngo-border);
+    border-radius: var(--radius-sm);
+    color: var(--ngo-text-primary);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: var(--ngo-text-secondary);
+}
+
+.form-input:hover {
+    border-color: var(--ngo-accent);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--ngo-accent);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+/* ===================================
+   Forgot Password Link
+   =================================== */
+.forgot-password-wrapper {
+    text-align: right;
+}
+
+.forgot-password-link {
+    color: var(--ngo-accent);
+    font-size: 0.875rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+}
+
+/* ===================================
+   Buttons
+   =================================== */
+.btn-primary {
+    width: 100%;
+    height: 3rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--ngo-accent);
+    color: var(--ngo-navy);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+    background-color: #0099bb;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-secondary {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    background-color: var(--ngo-surface);
+    color: var(--ngo-text-primary);
+    border: 1px solid var(--ngo-border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-secondary:hover {
+    opacity: 0.8;
+    border-color: var(--ngo-accent);
+}
+
+.btn-secondary:active {
+    transform: translateY(1px);
+}
+
+/* ===================================
+   Footer Actions
+   =================================== */
+.footer-actions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--ngo-border);
+}
+
+/* ===================================
+   Helpdesk modal (used on login page)
+   =================================== */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2,10,20,0.64);
+    z-index: 1200;
+    padding: 1.5rem;
+}
+
+/* show when targeted */
+.modal-overlay:target {
+    display: flex;
+}
+
+/* clicking the overlay-close clears the hash (link to #) */
+.modal-overlay .modal-overlay-close {
+    position: absolute;
+    inset: 0;
+    display: block;
+    text-indent: -9999px;
+}
+
+/* Modal card */
+.modal-card {
+    width: min(820px, 96%);
+    max-width: 820px;
+    background: linear-gradient(180deg,#0b2230 0%, #071822 100%);
+    color: #e9f6fb;
+    border-radius: 12px;
+    padding: 1.25rem 1.25rem;
+    box-shadow: 0 18px 40px rgba(2,10,25,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+    position: relative;
+}
+
+/* small close X in corner */
+.modal-card .modal-close-x {
+    position: absolute;
+    right: 10px;
+    top: 8px;
+    background: transparent;
+    border: none;
+    color: rgba(233,246,251,0.9);
+    font-size: 16px;
+    cursor: pointer;
+}
+
+/* Helpdesk specific */
+.helpdesk-card h2 { margin: 0 0 0.5rem 0; font-size: 1.25rem; font-weight:700; }
+.helpdesk-card .form-group { margin-bottom: 0.9rem; }
+.helpdesk-card label { display:block; margin-bottom:0.35rem; color: rgba(233,246,251,0.85); font-weight:600; }
+
+/* Inputs, selects and textarea: use modal background for select dropdown appearance */
+.helpdesk-card input[type="text"],
+.helpdesk-card select,
+.helpdesk-card textarea {
+    width:100%;
+    padding:0.6rem 0.75rem;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.04);
+    background-color: #071822; /* ensure select and inputs match requested background */
+    background-image: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+    color: #e9f6fb;
+    font-size:0.95rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+/* When select is focused/opened */
+.helpdesk-card select:focus,
+.helpdesk-card select:active {
+    background-color: #071822;
+    box-shadow: 0 0 0 3px rgba(0,180,216,0.08);
+    outline: none;
+}
+
+/* Options styling (where supported) */
+.helpdesk-card select option {
+    background-color: #071822;
+    color: #e9f6fb;
+}
+
+/* Attachment zone */
+.attachment-zone {
+    display:block;
+    cursor:pointer;
+    border:1px dashed rgba(255,255,255,0.06);
+    padding:12px;
+    border-radius:8px;
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));
+}
+.attachment-inner { display:flex; gap:12px; align-items:center; }
+.attachment-meta .attachment-title { font-weight:700; color:#e9f6fb; }
+.attachment-meta .attachment-sub { font-size:12px; color:rgba(233,246,251,0.75); }
+
+/* hide native file input but keep accessible */
+.attachment-zone input[type="file"] {
+    position:absolute; left:-9999px;
+}
+
+/* Modal actions */
+.modal-actions { 
+    display:flex;
+     gap:10px; 
+     justify-content:flex-end; 
+     margin-top:0.5rem; 
+}
+
+.btn-primary {
+    background: linear-gradient(90deg,#00c8e6,#00a7c2);
+    color:#052027;
+    padding:0.6rem 0.9rem;
+    border-radius:8px;
+    font-weight:700;
+    border:none;
+    text-decoration:none;
+    cursor:pointer;
+}
+.btn-secondary {
+    background: transparent;
+    color: #cfeff6;
+    padding:0.55rem 0.8rem;
+    border-radius:8px;
+    border:1px solid rgba(255,255,255,0.05);
+    text-decoration:none;
+    cursor:pointer;
+}
+
+/* success card tweaks */
+.success-card { text-align:center; padding:1.25rem; }
+.success-card h2 { margin:0 0 0.5rem 0; font-size:1.15rem; }
+
+/* Upload success modal (used by helpdesk file input) */
+#upload-success.modal-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(2,10,20,0.6);
+    z-index: 1400;
+    padding: 1.5rem;
+}
+#upload-success.modal-overlay:target { display: flex; }
+
+.modal-card.upload-success-modal {
+    width: min(520px, 94%);
+    background: linear-gradient(180deg, #0b2230 0%, #071822 100%);
+    color: #e9f6fb;
+    border-radius: 12px;
+    padding: 1.2rem 1.25rem;
+    text-align: center;
+    box-shadow: 0 18px 40px rgba(2,10,25,0.6);
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* back link */
+.modal-back-link { color: #7fe6ff; text-decoration: none; display:inline-block; }
+
+/* Action button */
+.modal-card.upload-success-modal .btn {
+    display:inline-flex; align-items:center; justify-content:center;
+    padding:0.6rem 1rem; border-radius:10px; font-weight:700; text-decoration:none;
+}
+.modal-card.upload-success-modal .btn.btn-primary {
+    background: linear-gradient(90deg,#00c8e6,#00a7c2);
+    color:#052027; border:none; box-shadow:0 8px 20px rgba(0,180,216,0.14);
+}
+@media (max-width:480px) {
+    .modal-card.upload-success-modal { padding:0.9rem; border-radius:10px; }
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+/* Tablet and above (768px+) */
+@media (min-width: 768px) {
+    .form-header {
+        text-align: left;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .branding-panel {
+        display: flex;
+        width: 50%;
+    }
+    
+    .form-panel {
+        width: 50%;
+    }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+    .brand-title {
+        font-size: 2.5rem;
+    }
+    
+    .form-wrapper {
+        max-width: 32rem;
+    }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+.form-input:focus-visible,
+.form-select:focus-visible,
+.btn-primary:focus-visible,
+.btn-secondary:focus-visible {
+    outline: 2px solid var(--ngo-accent);
+    outline-offset: 2px;
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+@media print {
+    .login-container {
+        display: none;
+    }
+}
+
+/* Helpdesk modal styling tuned to same palette */
+#helpdesk-modal .modal-card.helpdesk-card,
+#helpdesk-modal .modal-card {
+    background: linear-gradient(180deg, var(--ngo-surface) 0%, var(--ngo-navy) 100%);
+    border: 1px solid var(--ngo-border);
+    color: var(--ngo-text-primary);
+}
+
+/* inputs / textarea / selects inside helpdesk modal */
+#helpdesk-modal input[type="text"],
+#helpdesk-modal textarea,
+#helpdesk-modal select,
+#helpdesk-modal input[type="file"] {
+    background: var(--ngo-navy);
+    border: 1px solid var(--ngo-border);
+    color: var(--ngo-text-primary);
+}
+
+/* explicit dropdown background requested */
+#helpdesk-modal select {
+    background: #0F172A; /* requested dropdown colour */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding-right: 2.25rem;
+}
+
+/* attachment zone should match modal tone */
+#helpdesk-modal .attachment-zone {
+    background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+    border: 1px dashed var(--ngo-border);
+}
+
+/* success/upload modal (re-use palette) */
+#upload-success .modal-card.upload-success-modal,
+#helpdesk-modal .modal-card.upload-success-modal {
+    background: linear-gradient(180deg, var(--ngo-surface), var(--ngo-navy));
+    border: 1px solid var(--ngo-border);
+    color: var(--ngo-text-primary);
+}
+
+/* make sure focus outlines remain visible on dark bg */
+#helpdesk-modal input:focus,
+#helpdesk-modal select:focus,
+#helpdesk-modal textarea:focus {
+    outline: 2px solid rgba(0,180,216,0.12);
+    outline-offset: 2px;
+}

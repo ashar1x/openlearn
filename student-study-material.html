@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - OpenLearn NGO Learning Platform</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="student-study-material.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo Section -->
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <!-- Graduation Cap Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h2>OpenLearn NGO Learning Platform</h2>
+                        <p>School Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="nav-item" data-page="dashboard">
+                    <!-- Dashboard Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="assignment-upload.html" class="nav-item" data-page="assignments">
+                    <!-- File Text Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <span>Assignments/Quizzes</span>
+                </a>
+                <a href="student-study-material.html" class="nav-item active" data-page="study-material">
+                    <!-- Book Open Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    <span>Study Material</span>
+                </a>
+                <a href="student-helpdesk.html" class="nav-item" data-page="helpdesk">
+                    <!-- Help Circle Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Helpdesk</span>
+                </a>
+                <a href="student-chat.html" class="nav-item" data-page="profile">
+                    <!-- Chat Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        <circle cx="8" cy="11" r="1"/>
+                        <circle cx="12" cy="11" r="1"/>
+                        <circle cx="16" cy="11" r="1"/>
+                    </svg>
+                    <span>Chat</span>
+                </a>
+                <a href="student-badges.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="7"/>
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                    </svg>
+                    <span>Badges</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <p>Version 1.0.0</p>
+                <p>© 2025 OpenLearn NGO Learning Platform</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Mobile Header (Glassmorphic) -->
+            <div class="mobile-header" id="mobileHeader">
+                <div class="mobile-header-content">
+                    <div class="mobile-logo">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <span class="mobile-logo-text">OpenLearn</span>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Sidebar Menu -->
+            <div class="mobile-sidebar-menu" id="mobileSidebarMenu">
+                <div class="mobile-sidebar-content">
+                    <nav class="mobile-sidebar-nav">
+                        <a href="student-dashboard.html" class="mobile-nav-item active">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="assignment-upload.html" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            <span>Assignments</span>
+                        </a>
+                        <a href="#study-material" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            <span>Study Material</span>
+                        </a>
+                        <a href="student-helpdesk.html" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            <span>Helpdesk</span>
+                        </a>
+                        <a href="#profile" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>Profile</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Student Portal</h1>
+                </div>
+                <div class="topbar-right">
+                    <!-- Notification Bell -->
+                     <a href="student-notifications.html">
+                    <button class="notification-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    </a>
+
+                    <!-- Role Badge -->
+                    <div class="role-badge">Student - STD-2024-001</div>
+
+                    <!-- Logout Button -->
+                    <a href="#logout-confirm" class="logout-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+    <!-- Search & filter row -->
+    <div class="materials-controls">
+        <label class="search-wrapper" for="material-search" aria-hidden="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+            </svg>
+            <input id="material-search" type="search" placeholder="Search materials by title or subject..." aria-label="Search materials by title or subject">
+        </label>
+
+        <label class="select-wrapper" for="subject-filter" aria-hidden="true">
+            <select id="subject-filter" aria-label="Filter materials by subject">
+                <option value="all">All Subjects</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="physics">Physics</option>
+                <option value="history">History</option>
+                <option value="biology">Biology</option>
+                <option value="english">English</option>
+            </select>
+        </label>
+    </div>
+
+    <!-- Materials grid -->
+    <section class="materials-grid" aria-label="Available learning materials">
+        <!-- Card -->
+        <article class="material-card">
+            <div class="card-top">
+                <span class="subject-badge chemistry">Chemistry</span>
+                <div class="file-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="material-title">Chemistry Lab Report Template</h3>
+            <div class="material-meta">
+                <span>Uploaded by: Prof. Wilson</span>
+                <span>• Date: 2024-10-28</span>
+                <span>• Size: 2.4 MB • PDF</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn download-btn" href="#" download aria-label="Download Chemistry Lab Report Template">Download</a>
+            </div>
+        </article>
+
+        <article class="material-card">
+            <div class="card-top">
+                <span class="subject-badge physics">Physics</span>
+                <div class="file-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="material-title">Physics - Thermodynamics</h3>
+            <div class="material-meta">
+                <span>Uploaded by: Prof. Wilson</span>
+                <span>• Date: 2024-10-28</span>
+                <span>• Size: 2.4 MB • PDF</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn download-btn" href="#" download aria-label="Download Physics - Thermodynamics">Download</a>
+            </div>
+        </article>
+
+        <article class="material-card">
+            <div class="card-top">
+                <span class="subject-badge history">History</span>
+                <div class="file-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="material-title">History - World War II Timeline</h3>
+            <div class="material-meta">
+                <span>Uploaded by: Prof. Wilson</span>
+                <span>• Date: 2024-10-28</span>
+                <span>• Size: 2.4 MB • PDF</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn download-btn" href="#" download aria-label="Download History - World War II Timeline">Download</a>
+            </div>
+        </article>
+
+        <article class="material-card">
+            <div class="card-top">
+                <span class="subject-badge biology">Biology</span>
+                <div class="file-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="material-title">Biology - Cell Structure Diagrams</h3>
+            <div class="material-meta">
+                <span>Uploaded by: Prof. Wilson</span>
+                <span>• Date: 2024-10-28</span>
+                <span>• Size: 2.4 MB • PDF</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn download-btn" href="#" download aria-label="Download Biology - Cell Structure Diagrams">Download</a>
+            </div>
+        </article>
+
+        <article class="material-card">
+            <div class="card-top">
+                <span class="subject-badge english">English</span>
+                <div class="file-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="material-title">English Literature</h3>
+            <div class="material-meta">
+                <span>Uploaded by: Prof. Wilson</span>
+                <span>• Date: 2024-10-28</span>
+                <span>• Size: 2.4 MB • PDF</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn download-btn" href="#" download aria-label="Download English Literature">Download</a>
+            </div>
+        </article>
+
+        <!-- Duplicate / sample cards to match layout -->
+        <article class="material-card">
+            <div class="card-top">
+                <span class="subject-badge physics">Physics</span>
+                <div class="file-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="material-title">Physics - Thermodynamics</h3>
+            <div class="material-meta">
+                <span>Uploaded by: Prof. Wilson</span>
+                <span>• Date: 2024-10-28</span>
+                <span>• Size: 2.4 MB • PDF</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn download-btn" href="#" download aria-label="Download Physics - Thermodynamics">Download</a>
+            </div>
+        </article>
+
+        <article class="material-card">
+            <div class="card-top">
+                <span class="subject-badge history">History</span>
+                <div class="file-icon" aria-hidden="true">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <path d="M14 2v6h6"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="material-title">History - World War II Timeline</h3>
+            <div class="material-meta">
+                <span>Uploaded by: Prof. Wilson</span>
+                <span>• Date: 2024-10-28</span>
+                <span>• Size: 2.4 MB • PDF</span>
+            </div>
+            <div class="card-actions">
+                <a class="btn download-btn" href="#" download aria-label="Download History - World War II Timeline">Download</a>
+            </div>
+        </article>
+    </section>
+    
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-confirm" class="modal-overlay">
+        <div class="modal-card logout-modal">
+            <!-- Warning Icon -->
+            <div class="warning-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+            </div>
+            <h2 class="logout-title">Confirm Logout</h2>
+            <p class="logout-message">Are you sure you want to logout? You'll need to sign in again to access your account.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="login.html" class="btn btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileSidebarMenu = document.getElementById('mobileSidebarMenu');
+        const mobileHeader = document.getElementById('mobileHeader');
+        
+        if (mobileMenuToggle && mobileSidebarMenu) {
+            mobileMenuToggle.addEventListener('click', function() {
+                mobileSidebarMenu.classList.toggle('open');
+            });
+        }
+
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("material-search");
+    const subjectFilter = document.getElementById("subject-filter");
+    const cards = document.querySelectorAll(".material-card");
+
+    function filterCards() {
+        const searchText = searchInput.value.toLowerCase();
+        const selectedSubject = subjectFilter.value;
+
+        cards.forEach(card => {
+            const title = card.querySelector(".material-title").textContent.toLowerCase();
+            const subjectBadge = card.querySelector(".subject-badge").textContent.toLowerCase();
+
+            const matchesSearch = title.includes(searchText);
+            const matchesSubject = (selectedSubject === "all") ||
+                                   subjectBadge.includes(selectedSubject);
+
+            if (matchesSearch && matchesSubject) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+
+    searchInput.addEventListener("input", filterCards);
+    subjectFilter.addEventListener("change", filterCards);
+});
+    </script>
+
+
+</body>
+</html>

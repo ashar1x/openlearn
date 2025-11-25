@@ -1,0 +1,389 @@
+/* ===================================
+   OpenLearn NGO Learning Platform
+   Signup Page Styles
+   =================================== */
+
+/* ===================================
+   CSS Variables (Color Palette)
+   =================================== */
+   :root {
+    /* NGO Color Palette */
+    --ngo-navy: #0F172A;
+    --ngo-surface: #1E293B;
+    --ngo-border: #334155;
+    --ngo-accent: #00B4D8;
+    --ngo-highlight: #FFD700;
+    --ngo-text-primary: #E2E8F0;
+    --ngo-text-secondary: #94A3B8;
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Border Radius */
+    --radius-sm: 0.5rem;  /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 1rem;    /* 16px */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ngo-text-primary);
+    background-color: var(--ngo-navy);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* ===================================
+   Main Container
+   =================================== */
+.signup-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--ngo-navy);
+}
+
+/* ===================================
+   Left Panel - Branding
+   =================================== */
+.branding-panel {
+    display: none;
+    background-color: var(--ngo-surface);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem;
+}
+
+.branding-content {
+    max-width: 28rem;
+    text-align: center;
+}
+
+.logo-container {
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--ngo-accent);
+    border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.logo-icon {
+    color: var(--ngo-navy);
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.brand-title {
+    font-size: 2.25rem; /* 36px */
+    color: var(--ngo-text-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.brand-subtitle {
+    font-size: 1.25rem; /* 20px */
+    color: var(--ngo-highlight);
+    margin-bottom: 1.5rem;
+    font-weight: 500;
+}
+
+.brand-description {
+    font-size: 1rem;
+    color: var(--ngo-text-secondary);
+    line-height: 1.75;
+}
+
+/* ===================================
+   Right Panel - Signup Form
+   =================================== */
+.form-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.form-wrapper {
+    width: 100%;
+    max-width: 28rem;
+}
+
+/* ===================================
+   Back to Login Link
+   =================================== */
+.back-link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--ngo-accent);
+    text-decoration: none;
+    font-size: 0.875rem;
+    transition: opacity 0.2s ease;
+}
+
+.back-link:hover {
+    opacity: 0.8;
+}
+
+.back-icon {
+    width: 1rem;
+    height: 1rem;
+}
+
+/* ===================================
+   Form Header
+   =================================== */
+.form-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-title {
+    font-size: 1.875rem; /* 30px */
+    color: var(--ngo-text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.form-subtitle {
+    color: var(--ngo-text-secondary);
+    font-size: 1rem;
+}
+
+/* ===================================
+   Form Elements
+   =================================== */
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    color: var(--ngo-text-primary);
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* ===================================
+   Select Dropdown
+   =================================== */
+.select-wrapper {
+    position: relative;
+}
+
+.form-select {
+    width: 100%;
+    height: 3rem;
+    padding: 0.75rem 2.5rem 0.75rem 1rem;
+    background-color: var(--ngo-surface);
+    border: 1px solid var(--ngo-border);
+    border-radius: var(--radius-sm);
+    color: var(--ngo-text-primary);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.2s ease;
+}
+
+.form-select:hover {
+    border-color: var(--ngo-accent);
+}
+
+.form-select:focus {
+    outline: none;
+    border-color: var(--ngo-accent);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+.form-select option {
+    background-color: var(--ngo-surface);
+    color: var(--ngo-text-primary);
+}
+
+.select-icon {
+    position: absolute;
+    right: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ngo-text-secondary);
+    pointer-events: none;
+}
+
+/* ===================================
+   Input Fields
+   =================================== */
+.input-wrapper {
+    position: relative;
+}
+
+.input-icon {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--ngo-text-secondary);
+    pointer-events: none;
+}
+
+.form-input {
+    width: 100%;
+    height: 3rem;
+    padding: 0.75rem 1rem 0.75rem 2.5rem;
+    background-color: var(--ngo-surface);
+    border: 1px solid var(--ngo-border);
+    border-radius: var(--radius-sm);
+    color: var(--ngo-text-primary);
+    font-size: 1rem;
+    font-family: var(--font-body);
+    transition: all 0.2s ease;
+}
+
+.form-input::placeholder {
+    color: var(--ngo-text-secondary);
+}
+
+.form-input:hover {
+    border-color: var(--ngo-accent);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--ngo-accent);
+    box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.1);
+}
+
+/* ===================================
+   Create Account Button
+   =================================== */
+.btn-primary {
+    width: 100%;
+    height: 3rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--ngo-accent);
+    color: var(--ngo-navy);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: var(--shadow-md);
+    margin-top: 0.5rem;
+}
+
+.btn-primary:hover {
+    background-color: #0099bb;
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-1px);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+/* ===================================
+   Terms Notice
+   =================================== */
+.terms-notice {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--ngo-text-secondary);
+    padding-top: 1rem;
+    line-height: 1.6;
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+/* Tablet and above (768px+) */
+@media (min-width: 768px) {
+    .form-header {
+        text-align: left;
+    }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+    .branding-panel {
+        display: flex;
+        width: 50%;
+    }
+    
+    .form-panel {
+        width: 50%;
+    }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+    .brand-title {
+        font-size: 2.5rem;
+    }
+    
+    .form-wrapper {
+        max-width: 32rem;
+    }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+.form-input:focus-visible,
+.form-select:focus-visible,
+.btn-primary:focus-visible,
+.back-link:focus-visible {
+    outline: 2px solid var(--ngo-accent);
+    outline-offset: 2px;
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+@media print {
+    .signup-container {
+        display: none;
+    }
+}

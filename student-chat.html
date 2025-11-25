@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard - OpenLearn NGO Learning Platform</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+    <link rel="stylesheet" href="student-chat.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo Section -->
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <!-- Graduation Cap Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h2>OpenLearn NGO Learning Platform</h2>
+                        <p>School Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="sidebar-nav">
+                <a href="student-dashboard.html" class="nav-item" data-page="dashboard">
+                    <!-- Dashboard Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="assignment-upload.html" class="nav-item" data-page="assignments">
+                    <!-- File Text Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                        <polyline points="14 2 14 8 20 8"/>
+                        <line x1="16" y1="13" x2="8" y2="13"/>
+                        <line x1="16" y1="17" x2="8" y2="17"/>
+                        <polyline points="10 9 9 9 8 9"/>
+                    </svg>
+                    <span>Assignments/Quizzes</span>
+                </a>
+                <a href="student-study-material.html" class="nav-item" data-page="study-material">
+                    <!-- Book Open Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    <span>Study Material</span>
+                </a>
+                <a href="student-helpdesk.html" class="nav-item" data-page="helpdesk">
+                    <!-- Help Circle Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Helpdesk</span>
+                </a>
+                <a href="student-chat.html" class="nav-item active" data-page="profile">
+                    <!-- Chat Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                        <circle cx="8" cy="11" r="1"/>
+                        <circle cx="12" cy="11" r="1"/>
+                        <circle cx="16" cy="11" r="1"/>
+                    </svg>
+                    <span>Chat</span>
+                </a>
+                <a href="student-badges.html" class="nav-item">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="8" r="7"/>
+                        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/>
+                    </svg>
+                    <span>Badges</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <p>Version 1.0.0</p>
+                <p>© 2025 OpenLearn NGO Learning Platform</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Mobile Header (Glassmorphic) -->
+            <div class="mobile-header" id="mobileHeader">
+                <div class="mobile-header-content">
+                    <div class="mobile-logo">
+                        <div class="logo-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                                <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                            </svg>
+                        </div>
+                        <span class="mobile-logo-text">OpenLearn</span>
+                    </div>
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="3" y1="12" x2="21" y2="12"/>
+                            <line x1="3" y1="6" x2="21" y2="6"/>
+                            <line x1="3" y1="18" x2="21" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Mobile Sidebar Menu -->
+            <div class="mobile-sidebar-menu" id="mobileSidebarMenu">
+                <div class="mobile-sidebar-content">
+                    <nav class="mobile-sidebar-nav">
+                        <a href="student-dashboard.html" class="mobile-nav-item active">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="3" width="7" height="7"/>
+                                <rect x="14" y="3" width="7" height="7"/>
+                                <rect x="14" y="14" width="7" height="7"/>
+                                <rect x="3" y="14" width="7" height="7"/>
+                            </svg>
+                            <span>Dashboard</span>
+                        </a>
+                        <a href="assignment-upload.html" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                            </svg>
+                            <span>Assignments</span>
+                        </a>
+                        <a href="#study-material" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                            <span>Study Material</span>
+                        </a>
+                        <a href="student-helpdesk.html" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                            <span>Helpdesk</span>
+                        </a>
+                        <a href="#profile" class="mobile-nav-item">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            <span>Profile</span>
+                        </a>
+                    </nav>
+                </div>
+            </div>
+
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Student Portal</h1>
+                </div>
+                <div class="topbar-right">
+                    <!-- Notification Bell -->
+                     <a href="student-notifications.html">
+                    <button class="notification-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                        </svg>
+                        <span class="notification-dot"></span>
+                    </button>
+                    </a>
+
+                    <!-- Role Badge -->
+                    <div class="role-badge">Student - STD-2024-001</div>
+
+                    <!-- Logout Button -->
+                    <a href="#logout-confirm" class="logout-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <button class="back-btn" id="backBtn">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <div class="header-title" id="headerTitle">Messages</div>
+            </div>
+        </div>
+
+        <!-- Teacher List View -->
+        <div class="teacher-list-view" id="teacherListView">
+            <div class="teacher-list-header">
+                <h2>Your Teachers</h2>
+                <p>Select a teacher to start chatting</p>
+            </div>
+            <div class="teacher-list" id="teacherList"></div>
+        </div>
+
+        <!-- Chat View -->
+        <div class="chat-view" id="chatView">
+            <div class="chat-messages" id="chatMessages">
+                <div class="empty-state">
+                    <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                    <p>No messages yet. Start by sending a message!</p>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        class="chat-input" 
+                        id="messageInput" 
+                        placeholder="Type a message..." 
+                        aria-label="Type a message"
+                    >
+                </div>
+                <button class="send-btn" id="sendBtn" aria-label="Send message">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample teachers data - replace with actual data
+        const teachers = [
+            { id: 1, name: 'Ms. Ermish Tabassum', subject: 'Mathematics', avatar: 'SJ' },
+            { id: 2, name: 'Mr. Ashar Ahmed', subject: 'Science', avatar: 'DL' },
+            { id: 3, name: 'Mr. Ali Haider', subject: 'English', avatar: 'EB' },
+            { id: 4, name: 'Dr. Suleman', subject: 'History', avatar: 'MC' },
+            { id: 5, name: 'Ms. Ayesha', subject: 'Art', avatar: 'RG' }
+        ];
+
+        let currentTeacher = null;
+        let currentMessages = [];
+
+        const teacherListView = document.getElementById('teacherListView');
+        const chatView = document.getElementById('chatView');
+        const teacherList = document.getElementById('teacherList');
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const backBtn = document.getElementById('backBtn');
+        const headerTitle = document.getElementById('headerTitle');
+
+        // Initialize
+        function init() {
+            renderTeacherList();
+            showTeacherList();
+        }
+
+        // Render teacher list
+        function renderTeacherList() {
+            teacherList.innerHTML = teachers.map(teacher => {
+                const lastMessage = getLastMessage(teacher.id);
+                return `
+                    <div class="teacher-card" onclick="openChat(${teacher.id})">
+                        <div class="teacher-avatar">${teacher.avatar}</div>
+                        <div class="teacher-info">
+                            <div class="teacher-name">${teacher.name}</div>
+                            <div class="teacher-subject">${teacher.subject}</div>
+                            ${lastMessage ? `<div class="message-preview">${lastMessage}</div>` : ''}
+                        </div>
+                        <div class="teacher-status">
+                            <div class="status-badge"></div>
+                            <span>Online</span>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // Get last message for a teacher
+        function getLastMessage(teacherId) {
+            const messages = loadMessages(teacherId);
+            if (messages.length === 0) return null;
+            const lastMsg = messages[messages.length - 1];
+            return lastMsg.text.length > 50 ? lastMsg.text.substring(0, 50) + '...' : lastMsg.text;
+        }
+
+        // Show teacher list
+        function showTeacherList() {
+            teacherListView.classList.remove('hidden');
+            chatView.classList.remove('active');
+            headerTitle.textContent = 'Messages';
+            backBtn.style.display = 'none';
+        }
+
+        // Open chat with teacher
+        function openChat(teacherId) {
+            currentTeacher = teachers.find(t => t.id === teacherId);
+            if (!currentTeacher) return;
+
+            teacherListView.classList.add('hidden');
+            chatView.classList.add('active');
+            headerTitle.textContent = currentTeacher.name;
+            backBtn.style.display = 'flex';
+
+            currentMessages = loadMessages(teacherId);
+            renderMessages();
+        }
+
+        // Load messages from storage
+        function loadMessages(teacherId) {
+            const storageKey = `student-chat-teacher-${teacherId}`;
+            const stored = localStorage.getItem(storageKey);
+            return stored ? JSON.parse(stored) : [];
+        }
+
+        // Save messages to storage
+        function saveMessages(teacherId, messages) {
+            const storageKey = `student-chat-teacher-${teacherId}`;
+            localStorage.setItem(storageKey, JSON.stringify(messages));
+        }
+
+        // Add message
+        function addMessage(text, isSent) {
+            const message = {
+                text,
+                isSent,
+                timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            };
+            currentMessages.push(message);
+            saveMessages(currentTeacher.id, currentMessages);
+            renderMessages();
+        }
+
+        // Render messages
+        function renderMessages() {
+            if (currentMessages.length === 0) {
+                chatMessages.innerHTML = `
+                    <div class="empty-state">
+                        <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        <p>No messages yet. Start by sending a message!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            chatMessages.innerHTML = currentMessages.map(msg => `
+                <div class="message ${msg.isSent ? 'sent' : 'received'}">
+                    <div class="message-avatar">${msg.isSent ? 'S' : currentTeacher.avatar.charAt(0)}</div>
+                    <div class="message-content">
+                        <div class="message-bubble">${escapeHtml(msg.text)}</div>
+                        <div class="message-time">${msg.timestamp}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Send message
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (text === '' || !currentTeacher) return;
+
+            addMessage(text, true);
+            messageInput.value = '';
+            messageInput.focus();
+        }
+
+        // Event listeners
+        sendBtn.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+        backBtn.addEventListener('click', showTeacherList);
+
+        // Initialize on page load
+        init();
+    </script>
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-confirm" class="modal-overlay">
+        <div class="modal-card logout-modal">
+            <!-- Warning Icon -->
+            <div class="warning-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+            </div>
+            <h2 class="logout-title">Confirm Logout</h2>
+            <p class="logout-message">Are you sure you want to logout? You'll need to sign in again to access your account.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="login.html" class="btn btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

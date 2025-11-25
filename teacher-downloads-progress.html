@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - OpenLearn NGO Learning Platform</title>
+    <link rel="stylesheet" href="teacher-downloads-progress.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo Section -->
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <!-- Graduation Cap Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h2>OpenLearn NGO Learning Platform</h2>
+                        <p>School Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="sidebar-nav">
+                <a href="teacher-dashboard.html" class="nav-item">
+                    <!-- Dashboard Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="#teacher-classes" class="nav-item">
+                    <!-- Users Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Classes</span>
+                </a>
+                <a href="teacher-progress-tracker.html" class="nav-item">
+                    <!-- Clipboard Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                    </svg>
+                    <span>Progress Tracker</span>
+                </a>
+                <a href="teacher-materials.html" class="nav-item active">
+                    <!-- Book Open Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    <span>Material Sharing</span>
+                </a>
+                <a href="teacher-helpdesk.html" class="nav-item">
+                    <!-- Help Circle Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Helpdesk</span>
+                </a>
+                <a href="teacher-quiz-create.html" class="nav-item">
+                    <!-- Help Circle Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Quiz/Assignment Creation</span>
+                </a>
+               <a href="teacher-leaderboard.html" class="nav-item">
+                    <!-- User Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Leaderboard</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <p>Version 1.0.0</p>
+                <p>© 2025 OpenLearn NGO Learning Platform</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Teacher Portal</h1>
+                </div>
+                <div class="topbar-right">
+
+                    <!-- Role Badge -->
+                    <div class="role-badge">Teacher - TCH-2024-042</div>
+
+                    <!-- Logout Button -->
+                    <a href="#logout-confirm" class="logout-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </header>
+        <!-- Main Content -->
+             <div class="container">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h2>Material Download Tracker</h2>
+            <div class="breadcrumb">
+                <a href="teacher-dashboard.html">Dashboard</a> / <a href="#">Study Materials</a> / Download Tracker
+            </div>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Total Students</span>
+                    <span class="stat-icon">👥</span>
+                </div>
+                <div class="stat-value">45</div>
+                <div class="stat-subtitle">in Grade 10 - Section A</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Downloaded</span>
+                    <span class="stat-icon">✅</span>
+                </div>
+                <div class="stat-value">32</div>
+                <div class="stat-subtitle">71% completion rate</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Pending</span>
+                    <span class="stat-icon">⏳</span>
+                </div>
+                <div class="stat-value">13</div>
+                <div class="stat-subtitle">29% not yet downloaded</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <span class="stat-label">Uploaded On</span>
+                    <span class="stat-icon">📅</span>
+                </div>
+                <div class="stat-value" style="font-size: 1.25rem;">Nov 15</div>
+                <div class="stat-subtitle">6 days ago</div>
+            </div>
+        </div>
+            <div class="filter-tabs">
+                <div class="filter-tab active">All Students (45)</div>
+                <div class="filter-tab active">Downloaded (32)</div>
+                <div class="filter-tab active">Pending (13)</div>
+            </div>
+            <input type="text" class="search-box" placeholder="Search students...">
+        </div>
+
+        <!-- Students Table -->
+        <div class="table-section">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Roll Number</th>
+                            <th>Status</th>
+                            <th>Downloaded On</th>
+                            <th>Time Since Upload</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">AK</div>
+                                    <div class="student-details">
+                                        <h4>Ahmed Khan</h4>
+                                        <div class="student-id">ST-2024-001</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-001</td>
+                            <td><span class="badge badge-success">✓ Downloaded</span></td>
+                            <td>
+                                <div class="timestamp">
+                                    <span class="date-text">Nov 15, 2024</span>
+                                    <span class="time-text">09:23 AM</span>
+                                </div>
+                            </td>
+                            <td>8 minutes after upload</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">FN</div>
+                                    <div class="student-details">
+                                        <h4>Fatima Noor</h4>
+                                        <div class="student-id">ST-2024-002</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-002</td>
+                            <td><span class="badge badge-success">✓ Downloaded</span></td>
+                            <td>
+                                <div class="timestamp">
+                                    <span class="date-text">Nov 15, 2024</span>
+                                    <span class="time-text">10:45 AM</span>
+                                </div>
+                            </td>
+                            <td>1 hour 30 mins after upload</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">MH</div>
+                                    <div class="student-details">
+                                        <h4>Muhammad Hassan</h4>
+                                        <div class="student-id">ST-2024-003</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-003</td>
+                            <td><span class="badge badge-danger">⏳ Pending</span></td>
+                            <td>
+                                <span style="color: #64748B;">Not Downloaded</span>
+                            </td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">SA</div>
+                                    <div class="student-details">
+                                        <h4>Sara Ahmed</h4>
+                                        <div class="student-id">ST-2024-004</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-004</td>
+                            <td><span class="badge badge-success">✓ Downloaded</span></td>
+                            <td>
+                                <div class="timestamp">
+                                    <span class="date-text">Nov 16, 2024</span>
+                                    <span class="time-text">02:15 PM</span>
+                                </div>
+                            </td>
+                            <td>1 day 5 hours after upload</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">AR</div>
+                                    <div class="student-details">
+                                        <h4>Ali Raza</h4>
+                                        <div class="student-id">ST-2024-005</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-005</td>
+                            <td><span class="badge badge-danger">⏳ Pending</span></td>
+                            <td>
+                                <span style="color: #64748B;">Not Downloaded</span>
+                            </td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">ZH</div>
+                                    <div class="student-details">
+                                        <h4>Zainab Hussain</h4>
+                                        <div class="student-id">ST-2024-006</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-006</td>
+                            <td><span class="badge badge-success">✓ Downloaded</span></td>
+                            <td>
+                                <div class="timestamp">
+                                    <span class="date-text">Nov 15, 2024</span>
+                                    <span class="time-text">11:30 AM</span>
+                                </div>
+                            </td>
+                            <td>2 hours 15 mins after upload</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">UK</div>
+                                    <div class="student-details">
+                                        <h4>Usman Khalid</h4>
+                                        <div class="student-id">ST-2024-007</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-007</td>
+                            <td><span class="badge badge-success">✓ Downloaded</span></td>
+                            <td>
+                                <div class="timestamp">
+                                    <span class="date-text">Nov 17, 2024</span>
+                                    <span class="time-text">08:00 AM</span>
+                                </div>
+                            </td>
+                            <td>2 days after upload</td>
+                            
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="student-info">
+                                    <div class="student-avatar">AM</div>
+                                    <div class="student-details">
+                                        <h4>Ayesha Malik</h4>
+                                        <div class="student-id">ST-2024-008</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>10A-008</td>
+                            <td><span class="badge badge-danger">⏳ Pending</span></td>
+                            <td>
+                                <span style="color: #64748B;">Not Downloaded</span>
+                            </td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<div id="logout-confirm" class="modal-overlay">
+    <div class="modal-card logout-modal">
+        <div class="warning-icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+        </div>
+        <h2 class="logout-title">Confirm Logout</h2>
+        <p class="logout-message">Are you sure you want to logout? You'll need to sign in again to access your account.</p>
+        <div class="modal-actions">
+            <a href="#" class="btn btn-cancel">Cancel</a>
+            <a href="login.html" class="btn btn-logout">Logout</a>
+        </div>
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const filterTabs = document.querySelectorAll('.filter-tab');
+    const searchBox = document.querySelector('.search-box');
+    const tableRows = document.querySelectorAll('tbody tr');
+    
+    let activeFilter = 'all'; // 'all', 'downloaded', 'pending'
+
+    // Filter Tab Click Handler
+    filterTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            filterTabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Determine filter type from tab text
+            const tabText = this.textContent.toLowerCase();
+            if (tabText.includes('all')) {
+                activeFilter = 'all';
+            } else if (tabText.includes('downloaded')) {
+                activeFilter = 'downloaded';
+            } else if (tabText.includes('pending')) {
+                activeFilter = 'pending';
+            }
+            
+            // Apply filters
+            applyFilters();
+        });
+    });
+
+    // Search Box Handler
+    searchBox.addEventListener('input', function() {
+        applyFilters();
+    });
+
+    // Main Filter Function
+    function applyFilters() {
+        const searchTerm = searchBox.value.toLowerCase().trim();
+        let visibleCount = 0;
+
+        tableRows.forEach(row => {
+            // Get row data
+            const studentName = row.querySelector('.student-details h4').textContent.toLowerCase();
+            const studentId = row.querySelector('.student-id').textContent.toLowerCase();
+            const rollNumber = row.querySelectorAll('td')[1].textContent.toLowerCase();
+            const statusBadge = row.querySelector('.badge');
+            const status = statusBadge.classList.contains('badge-success') ? 'downloaded' : 'pending';
+
+            // Check if matches search
+            const matchesSearch = searchTerm === '' || 
+                                studentName.includes(searchTerm) || 
+                                studentId.includes(searchTerm) || 
+                                rollNumber.includes(searchTerm);
+
+            // Check if matches filter
+            const matchesFilter = activeFilter === 'all' || status === activeFilter;
+
+            // Show or hide row
+            if (matchesSearch && matchesFilter) {
+                row.style.display = '';
+                row.style.animation = 'fadeIn 0.3s ease';
+                visibleCount++;
+            } else {
+                row.style.display = 'none';
+            }
+        });
+
+        // Update filter tab counts
+        updateFilterCounts();
+
+        // Show empty state if no results
+        showEmptyState(visibleCount);
+    }
+
+    // Update counts in filter tabs
+    function updateFilterCounts() {
+        let totalCount = 0;
+        let downloadedCount = 0;
+        let pendingCount = 0;
+
+        tableRows.forEach(row => {
+            const statusBadge = row.querySelector('.badge');
+            const isDownloaded = statusBadge.classList.contains('badge-success');
+            
+            totalCount++;
+            if (isDownloaded) {
+                downloadedCount++;
+            } else {
+                pendingCount++;
+            }
+        });
+
+        // Update tab text with counts
+        filterTabs[0].textContent = `All Students (${totalCount})`;
+        filterTabs[1].textContent = `Downloaded (${downloadedCount})`;
+        filterTabs[2].textContent = `Pending (${pendingCount})`;
+    }
+
+    // Show/hide empty state
+    function showEmptyState(visibleCount) {
+        const tableSection = document.querySelector('.table-section');
+        let emptyState = document.querySelector('.empty-state-tracker');
+
+        if (visibleCount === 0) {
+            if (!emptyState) {
+                emptyState = document.createElement('div');
+                emptyState.className = 'empty-state-tracker';
+                emptyState.innerHTML = `
+                    <div class="empty-icon">🔍</div>
+                    <h3>No students found</h3>
+                    <p>Try adjusting your search or filter to see more results.</p>
+                `;
+                tableSection.appendChild(emptyState);
+            }
+            document.querySelector('.table-wrapper').style.display = 'none';
+        } else {
+            if (emptyState) {
+                emptyState.remove();
+            }
+            document.querySelector('.table-wrapper').style.display = 'block';
+        }
+    }
+
+    // Action Button Handlers
+    const actionButtons = document.querySelectorAll('.action-btn');
+    actionButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            const studentName = row.querySelector('.student-details h4').textContent;
+            const buttonText = this.textContent;
+
+            if (buttonText === 'Send Reminder') {
+                // Show reminder sent confirmation
+                alert(`Reminder sent to ${studentName}`);
+                this.textContent = 'Reminder Sent ✓';
+                this.style.backgroundColor = '#10B981';
+                this.style.color = 'white';
+                this.disabled = true;
+                
+                // Re-enable after 3 seconds
+                setTimeout(() => {
+                    this.textContent = 'Send Reminder';
+                    this.style.backgroundColor = '';
+                    this.style.color = '';
+                    this.disabled = false;
+                }, 3000);
+            } else if (buttonText === 'View Details') {
+                // Show student details (you can implement a modal here)
+                alert(`Viewing details for ${studentName}`);
+            }
+        });
+    });
+
+    // Initialize counts on page load
+    updateFilterCounts();
+});
+</script>
+
+</body>
+</html>

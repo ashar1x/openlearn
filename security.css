@@ -1,0 +1,693 @@
+/* ===================================
+   OpenLearn NGO Learning Platform
+   Security Settings Styles
+   =================================== */
+
+/* ===================================
+   CSS Variables (Color Palette)
+   =================================== */
+   :root {
+    /* NGO Color Palette */
+    --ngo-navy: #0F172A;
+    --ngo-surface: #1E293B;
+    --ngo-border: #334155;
+    --ngo-accent: #00B4D8;
+    --ngo-highlight: #FFD700;
+    --ngo-text-primary: #E2E8F0;
+    --ngo-text-secondary: #94A3B8;
+    --ngo-success: #10B981;
+    --ngo-danger: #DC2626;
+    --ngo-warning: #EF4444;
+    --ngo-info: #3B82F6;
+    
+    /* Typography */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+    
+    /* Border Radius */
+    --radius-sm: 0.5rem;  /* 8px */
+    --radius-md: 0.75rem; /* 12px */
+    --radius-lg: 1rem;    /* 16px */
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+    
+    /* Sidebar */
+    --sidebar-width: 16rem; /* 256px */
+}
+
+/* ===================================
+   Reset & Base Styles
+   =================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--ngo-text-primary);
+    background-color: var(--ngo-navy);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    font-family: var(--font-body);
+    cursor: pointer;
+}
+
+/* ===================================
+   Dashboard Container
+   =================================== */
+.dashboard-container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ===================================
+   Sidebar (Reusing from admin dashboard)
+   =================================== */
+.sidebar {
+    width: var(--sidebar-width);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--ngo-surface);
+    border-right: 1px solid var(--ngo-border);
+}
+
+.sidebar-header {
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--ngo-border);
+}
+
+.logo-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.logo-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--ngo-accent);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.logo-icon svg {
+    color: var(--ngo-navy);
+}
+
+.logo-text h2 {
+    font-size: 1rem;
+    color: var(--ngo-text-primary);
+    font-weight: 500;
+    line-height: 1.3;
+}
+
+.logo-text p {
+    font-size: 0.75rem;
+    color: var(--ngo-text-secondary);
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 1rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-sm);
+    color: var(--ngo-text-primary);
+    transition: all 0.2s ease;
+    background-color: transparent;
+}
+
+.nav-item:hover {
+    background-color: rgba(0, 180, 216, 0.1);
+}
+
+.nav-item.active {
+    background-color: var(--ngo-accent);
+    color: var(--ngo-navy);
+}
+
+.nav-item svg {
+    flex-shrink: 0;
+}
+
+.nav-item span {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.sidebar-footer {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--ngo-border);
+}
+
+.sidebar-footer p {
+    font-size: 0.75rem;
+    color: var(--ngo-text-secondary);
+    line-height: 1.4;
+}
+
+/* ===================================
+   Main Wrapper
+   =================================== */
+.main-wrapper {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ===================================
+   Top Bar
+   =================================== */
+.topbar {
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 2rem;
+    background-color: var(--ngo-surface);
+    border-bottom: 1px solid var(--ngo-border);
+}
+
+.topbar-left h1 {
+    font-size: 1.125rem;
+    color: var(--ngo-text-primary);
+    font-weight: 500;
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.notification-btn {
+    position: relative;
+    padding: 0.5rem;
+    background-color: var(--ngo-border);
+    border: none;
+    border-radius: var(--radius-sm);
+    transition: opacity 0.2s ease;
+}
+
+.notification-btn:hover {
+    opacity: 0.8;
+}
+
+.notification-btn svg {
+    color: var(--ngo-text-primary);
+}
+
+.notification-dot {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    background-color: var(--ngo-highlight);
+    border-radius: 50%;
+}
+
+.role-badge {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--ngo-accent);
+    border-radius: var(--radius-sm);
+    color: var(--ngo-accent);
+    font-size: 0.875rem;
+}
+
+.logout-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: var(--ngo-danger);
+    color: white;
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: opacity 0.2s ease;
+}
+
+.logout-btn:hover {
+    opacity: 0.8;
+}
+
+/* ===================================
+   Main Content
+   =================================== */
+.main-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 2rem;
+    background-color: var(--ngo-navy);
+}
+
+.content-wrapper {
+    max-width: 75rem;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 1.875rem;
+    color: var(--ngo-text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.page-subtitle {
+    font-size: 0.875rem;
+    color: var(--ngo-text-secondary);
+    margin-bottom: 2rem;
+}
+
+/* ===================================
+   Security Overview
+   =================================== */
+.security-overview {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.overview-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background-color: var(--ngo-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+}
+
+.overview-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.overview-icon-green {
+    background-color: rgba(16, 185, 129, 0.15);
+}
+
+.overview-icon-cyan {
+    background-color: rgba(0, 180, 216, 0.15);
+}
+
+.overview-icon-gold {
+    background-color: rgba(255, 215, 0, 0.15);
+}
+
+.overview-content {
+    flex: 1;
+}
+
+.overview-label {
+    font-size: 0.875rem;
+    color: var(--ngo-text-secondary);
+    margin-bottom: 0.25rem;
+}
+
+.overview-value {
+    font-size: 1.25rem;
+    color: var(--ngo-text-primary);
+    font-weight: 600;
+}
+
+.overview-value-green {
+    color: var(--ngo-success);
+}
+
+/* ===================================
+   Security Section
+   =================================== */
+.security-section {
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    color: var(--ngo-text-primary);
+    font-weight: 600;
+}
+
+.section-subtitle {
+    font-size: 0.875rem;
+    color: var(--ngo-text-secondary);
+}
+
+.btn-view-all {
+    padding: 0.5rem 1rem;
+    background-color: var(--ngo-accent);
+    color: var(--ngo-navy);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+}
+
+.btn-view-all:hover {
+    opacity: 0.8;
+}
+
+.security-card {
+    background-color: var(--ngo-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+}
+
+/* ===================================
+   Setting Items
+   =================================== */
+.setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--ngo-border);
+}
+
+.setting-item:last-child {
+    border-bottom: none;
+}
+
+.setting-info {
+    flex: 1;
+    margin-right: 1rem;
+}
+
+.setting-title {
+    font-size: 1rem;
+    color: var(--ngo-text-primary);
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.setting-description {
+    font-size: 0.875rem;
+    color: var(--ngo-text-secondary);
+}
+
+/* ===================================
+   Toggle Switch
+   =================================== */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 3rem;
+    height: 1.5rem;
+    flex-shrink: 0;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--ngo-border);
+    transition: 0.3s;
+    border-radius: 1.5rem;
+}
+
+.toggle-slider:before {
+    position: absolute;
+    content: "";
+    height: 1.125rem;
+    width: 1.125rem;
+    left: 0.1875rem;
+    bottom: 0.1875rem;
+    background-color: white;
+    transition: 0.3s;
+    border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+    background-color: var(--ngo-accent);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(1.5rem);
+}
+
+/* ===================================
+   Activity Log
+   =================================== */
+.activity-log {
+    background-color: var(--ngo-surface);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+}
+
+.activity-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--ngo-border);
+}
+
+.activity-item:last-child {
+    border-bottom: none;
+}
+
+.activity-icon {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.activity-icon-success {
+    background-color: rgba(16, 185, 129, 0.2);
+    color: var(--ngo-success);
+}
+
+.activity-icon-warning {
+    background-color: rgba(239, 68, 68, 0.2);
+    color: var(--ngo-warning);
+}
+
+.activity-icon-info {
+    background-color: rgba(59, 130, 246, 0.2);
+    color: var(--ngo-info);
+}
+
+.activity-content {
+    flex: 1;
+}
+
+.activity-title {
+    font-size: 0.875rem;
+    color: var(--ngo-text-primary);
+    margin-bottom: 0.25rem;
+}
+
+.activity-time {
+    font-size: 0.75rem;
+    color: var(--ngo-text-secondary);
+}
+
+/* ===================================
+   Scrollbar Styling
+   =================================== */
+.sidebar-nav::-webkit-scrollbar,
+.main-content::-webkit-scrollbar {
+    width: 0.5rem;
+}
+
+.sidebar-nav::-webkit-scrollbar-track,
+.main-content::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb,
+.main-content::-webkit-scrollbar-thumb {
+    background-color: var(--ngo-border);
+    border-radius: 0.25rem;
+}
+
+.sidebar-nav::-webkit-scrollbar-thumb:hover,
+.main-content::-webkit-scrollbar-thumb:hover {
+    background-color: var(--ngo-accent);
+}
+
+/* ===================================
+   Responsive Design
+   =================================== */
+
+/* Tablet (768px - 1023px) */
+@media (max-width: 1023px) {
+    .sidebar {
+        width: 5rem;
+    }
+    
+    .logo-text,
+    .nav-item span,
+    .sidebar-footer {
+        display: none;
+    }
+    
+    .sidebar-header {
+        justify-content: center;
+    }
+    
+    .logo-wrapper {
+        justify-content: center;
+    }
+    
+    .nav-item {
+        justify-content: center;
+    }
+
+    .security-overview {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile (below 768px) */
+@media (max-width: 767px) {
+    .sidebar {
+        position: fixed;
+        left: -100%;
+        z-index: 1000;
+        transition: left 0.3s ease;
+    }
+    
+    .sidebar.open {
+        left: 0;
+    }
+    
+    .topbar {
+        padding: 0 1rem;
+    }
+    
+    .topbar-right {
+        gap: 0.5rem;
+    }
+    
+    .role-badge {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 1rem;
+    }
+
+    .security-overview {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .btn-view-all {
+        width: 100%;
+    }
+
+    .setting-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+}
+
+/* Large Desktop (1440px+) */
+@media (min-width: 1440px) {
+    .content-wrapper {
+        max-width: 85rem;
+    }
+}
+
+/* ===================================
+   Accessibility
+   =================================== */
+.nav-item:focus-visible,
+.notification-btn:focus-visible,
+.logout-btn:focus-visible,
+.btn-view-all:focus-visible,
+.toggle-switch:focus-within .toggle-slider {
+    outline: 2px solid var(--ngo-accent);
+    outline-offset: 2px;
+}
+
+/* ===================================
+   Print Styles
+   =================================== */
+@media print {
+    .sidebar,
+    .topbar,
+    .toggle-switch,
+    .btn-view-all {
+        display: none;
+    }
+    
+    .main-content {
+        padding: 0;
+    }
+}

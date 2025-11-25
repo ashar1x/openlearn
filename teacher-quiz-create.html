@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - OpenLearn NGO Learning Platform</title>
+    <link rel="stylesheet" href="teacher-quiz-create.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- Logo Section -->
+            <div class="sidebar-header">
+                <div class="logo-wrapper">
+                    <div class="logo-icon">
+                        <!-- Graduation Cap Icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+                        </svg>
+                    </div>
+                    <div class="logo-text">
+                        <h2>OpenLearn NGO Learning Platform</h2>
+                        <p>School Management</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Menu Items -->
+            <nav class="sidebar-nav">
+                <a href="teacher-dashboard.html" class="nav-item">
+                    <!-- Dashboard Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="3" width="7" height="7"/>
+                        <rect x="14" y="3" width="7" height="7"/>
+                        <rect x="14" y="14" width="7" height="7"/>
+                        <rect x="3" y="14" width="7" height="7"/>
+                    </svg>
+                    <span>Dashboard</span>
+                </a>
+                <a href="teacher-class.html" class="nav-item">
+                    <!-- Users Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    <span>Classes</span>
+                </a>
+                <a href="teacher-progress-tracker.html" class="nav-item">
+                    <!-- Clipboard Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
+                        <rect x="8" y="2" width="8" height="4" rx="1" ry="1"/>
+                    </svg>
+                    <span>Progress Tracker</span>
+                </a>
+                <a href="teacher-materials.html" class="nav-item">
+                    <!-- Book Open Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    <span>Material Sharing</span>
+                </a>
+                <a href="teacher-helpdesk.html" class="nav-item">
+                    <!-- Help Circle Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"/>
+                        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                        <line x1="12" y1="17" x2="12.01" y2="17"/>
+                    </svg>
+                    <span>Helpdesk</span>
+                </a>
+                <a href="teacher-quiz-create.html" class="nav-item active">
+                    <!-- Help Circle Icon -->
+                    <i class='bxr  bx-list-ul-square'></i> 
+                    <span>Quiz/Assignment Creation</span>
+                </a>
+                <a href="teacher-leaderboard.html" class="nav-item">
+                    <!-- User Icon -->
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span>Leaderboard</span>
+                </a>
+            </nav>
+
+            <!-- Footer -->
+            <div class="sidebar-footer">
+                <p>Version 1.0.0</p>
+                <p>© 2025 OpenLearn NGO Learning Platform</p>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <div class="main-wrapper">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1>Teacher Portal</h1>
+                </div>
+                <div class="topbar-right">
+                        <!-- Grade Assignments Button -->
+    <a href="teacher-grading.html" class="btn" style="display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: linear-gradient(135deg, var(--ngo-accent), #0096c7); color: var(--ngo-navy); border-radius: var(--radius-sm); font-size: 0.875rem; font-weight: 600; text-decoration: none; transition: all 0.2s ease;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
+        Grade Assignments
+    </a>
+                    <!-- Role Badge -->
+                    <div class="role-badge">Teacher - TCH-2024-042</div>
+
+                    <!-- Logout Button -->
+                    <a href="#logout-confirm" class="logout-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        <span>Logout</span>
+                    </a>
+                </div>
+            </header>
+
+    <!-- Main Content -->
+        <!-- Form Container -->
+        <div class="form-container">
+            <!-- Error Message -->
+            <div class="error-message" id="errorMessage">
+                <span class="error-icon">⚠️</span>
+                <span>Please fill in all required fields before submitting.</span>
+            </div>
+
+            <!-- Basic Information -->
+            <div class="form-group">
+                <label class="form-label required">Quiz/Assignment Title</label>
+                <input type="text" class="form-input" placeholder="Enter title (e.g., Chapter 5 Quiz)">
+                <div class="form-hint">Title cannot be empty</div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label required">Type</label>
+                    <select class="form-select">
+                        <option value="">Select type...</option>
+                        <option value="quiz">Quiz</option>
+                        <option value="assignment">Assignment</option>
+                        <option value="practice">Practice Test</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Subject</label>
+                    <select class="form-select">
+                        <option value="">Select subject...</option>
+                        <option value="math">Mathematics</option>
+                        <option value="science">Science</option>
+                        <option value="english">English</option>
+                        <option value="urdu">Urdu</option>
+                        <option value="social">Social Studies</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Description / Instructions</label>
+                <textarea class="form-textarea" placeholder="Add instructions for students..."></textarea>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label required">Class</label>
+                    <select class="form-select">
+                        <option value="">Select class...</option>
+                        <option value="grade10a">Grade 10 - Section A</option>
+                        <option value="grade10b">Grade 10 - Section B</option>
+                        <option value="grade9a">Grade 9 - Section A</option>
+                        <option value="grade9b">Grade 9 - Section B</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Total Marks</label>
+                    <input type="number" class="form-input" placeholder="100" value="100">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label required">Due Date</label>
+                    <input type="date" class="form-input">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label required">Due Time</label>
+                    <input type="time" class="form-input">
+                </div>
+            </div>
+
+            <a href="#upload-modal" class="btn upload-btn" aria-label="Upload Material">
+                <!-- upload icon -->
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                    <polyline points="7 10 12 5 17 10"/>
+                    <line x1="12" y1="5" x2="12" y2="19"/>
+                </svg>
+                Upload File
+            </a>
+
+            <!-- Action Buttons -->
+            <div class="btn-group">
+                <button id="create-assessment-btn" type="button" class="btn btn-primary">✓ Assign</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout Confirmation Modal -->
+    <div id="logout-confirm" class="modal-overlay">
+        <div class="modal-card logout-modal">
+            <div class="warning-icon">
+                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                    <line x1="12" y1="9" x2="12" y2="13"/>
+                    <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+            </div>
+            <h2 class="logout-title">Confirm Logout</h2>
+            <p class="logout-message">Are you sure you want to logout? You'll need to sign in again to access your account.</p>
+            <div class="modal-actions">
+                <a href="#" class="btn btn-cancel">Cancel</a>
+                <a href="login.html" class="btn btn-logout">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Create Success Modal (shown after creating assessment) -->
+    <div id="assessment-success" class="modal-overlay" aria-hidden="true">
+        <div class="modal-card register-success" role="dialog" aria-modal="true">
+            <h2 style="margin:0 0 .4rem 0;">Quiz Created</h2>
+            <p style="color:rgba(233,246,251,0.85);margin:0 0 .8rem 0;">The quiz has been created successfully.</p>
+            <div class="modal-actions" style="justify-content:center">
+                <button type="button" id="assessment-success-close" class="btn btn-primary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden question template for cloning -->
+    <template id="question-template">
+        <div class="question-card">
+            <div class="question-header">
+                <span class="question-number"></span>
+                <div class="question-actions">
+                    <button type="button" class="icon-btn copy-question" title="Duplicate question">📋</button>
+                    <button type="button" class="icon-btn delete-question" title="Delete question">🗑️</button>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="form-label required">Question Text</label>
+                <textarea class="form-textarea question-text" placeholder="Enter your question here..." style="min-height: 80px;"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label class="form-label">Question Type</label>
+                    <select class="form-select question-type">
+                        <option value="mcq">Multiple Choice</option>
+                        <option value="true-false">True/False</option>
+                        <option value="short">Short Answer</option>
+                        <option value="essay">Essay</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Points</label>
+                    <input type="number" class="form-input question-points" value="10" min="0">
+                </div>
+            </div>
+            <div class="form-group options-block">
+                <label class="form-label">Answer Options</label>
+                <div class="options-list">
+                    <div class="option-item"><button type="button" class="option-radio" title="Mark as correct"></button><input type="text" class="option-input" placeholder="Option A"></div>
+                    <div class="option-item"><button type="button" class="option-radio" title="Mark as correct"></button><input type="text" class="option-input" placeholder="Option B"></div>
+                    <div class="option-item"><button type="button" class="option-radio" title="Mark as correct"></button><input type="text" class="option-input" placeholder="Option C"></div>
+                    <div class="option-item"><button type="button" class="option-radio" title="Mark as correct"></button><input type="text" class="option-input" placeholder="Option D"></div>
+                </div>
+                <div class="form-hint">Click the circle to mark correct answer</div>
+            </div>
+        </div>
+    </template>
+
+    <!-- Lightweight JS to wire buttons -->
+    <script>
+    (function(){
+        const addBtn = document.getElementById('add-question-btn');
+        const createBtn = document.getElementById('create-assessment-btn');
+        const successModal = document.getElementById('assessment-success');
+        const successClose = document.getElementById('assessment-success-close');
+        const questionsSection = document.querySelector('.questions-section');
+        const template = document.getElementById('question-template');
+
+        function updateQuestionNumbers() {
+            const cards = questionsSection.querySelectorAll('.question-card');
+            cards.forEach((c,i)=> {
+                const num = c.querySelector('.question-number');
+                if (num) num.textContent = 'Question ' + (i+1);
+            });
+        }
+
+        function wireQuestionCard(card) {
+            // delete
+            const del = card.querySelector('.delete-question');
+            if (del) del.addEventListener('click', ()=> {
+                if (confirm('Delete this question?')) {
+                    card.remove();
+                    updateQuestionNumbers();
+                }
+            });
+            // copy
+            const copy = card.querySelector('.copy-question');
+            if (copy) copy.addEventListener('click', ()=> {
+                const clone = card.cloneNode(true);
+                wireQuestionCard(clone);
+                // clear cloned values except question text and options preserved for convenience
+                questionsSection.insertBefore(clone, addBtn.parentElement);
+                updateQuestionNumbers();
+            });
+            // option radio behavior (single correct per question)
+            const radios = card.querySelectorAll('.option-radio');
+            radios.forEach(r => {
+                r.addEventListener('click', ()=> {
+                    radios.forEach(x => x.classList.remove('checked'));
+                    r.classList.add('checked');
+                });
+            });
+            // question-type: hide options for non-mcq
+            const qType = card.querySelector('.question-type');
+            if (qType) qType.addEventListener('change', ()=> {
+                const opts = card.querySelector('.options-block');
+                if (!opts) return;
+                if (qType.value === 'mcq' || qType.value === 'true-false') {
+                    opts.style.display = '';
+                } else {
+                    opts.style.display = 'none';
+                }
+            });
+        }
+
+        // wire existing cards on load
+        document.querySelectorAll('.question-card').forEach(c => wireQuestionCard(c));
+        updateQuestionNumbers();
+
+        addBtn.addEventListener('click', ()=> {
+            const clone = template.content.firstElementChild.cloneNode(true);
+            questionsSection.insertBefore(clone, addBtn.parentElement);
+            wireQuestionCard(clone);
+            updateQuestionNumbers();
+            // scroll new question into view
+            clone.scrollIntoView({behavior:'smooth', block:'center'});
+        });
+
+        // Create Assessment: validate minimal required fields then show success modal
+        createBtn.addEventListener('click', ()=> {
+            const titleInput = document.querySelector('.form-container .form-input');
+            const titleVal = titleInput ? titleInput.value.trim() : '';
+            if (!titleVal) {
+                alert('Please enter the quiz title.');
+                if (titleInput) titleInput.focus();
+                return;
+            }
+            // ensure at least one question exists
+            const cards = questionsSection.querySelectorAll('.question-card');
+            if (!cards.length) {
+                alert('Please add at least one question.');
+                return;
+            }
+            // minimal question validation: each question text non-empty
+            for (const c of cards) {
+                const qText = c.querySelector('.question-text');
+                if (qText && qText.value.trim() === '') {
+                    alert('Please fill question text for all questions.');
+                    qText.focus();
+                    return;
+                }
+            }
+            // show success modal (no URL hash used)
+            successModal.classList.add('open');
+            successModal.setAttribute('aria-hidden','false');
+        });
+
+        successClose.addEventListener('click', ()=> {
+            successModal.classList.remove('open');
+            successModal.setAttribute('aria-hidden','true');
+            // optionally clear form or redirect; currently just close modal
+        });
+
+        // close success modal when clicking overlay area
+        successModal.addEventListener('click', (e)=> {
+            if (e.target === successModal) {
+                successModal.classList.remove('open');
+                successModal.setAttribute('aria-hidden','true');
+            }
+        });
+    })();
+    </script>
+
+    <!-- Small style override so .modal-overlay.open displays properly -->
+    <style>
+        .modal-overlay { display: none; align-items: center; justify-content:center; }
+        .modal-overlay.open { display: flex; position: fixed; inset: 0; background: rgba(2,10,20,0.6); z-index: 3000; padding:1.25rem; }
+        .register-success { max-width:520px; width:100%; background: linear-gradient(180deg,#0b2230,#071822); border-radius:12px; padding:1rem; box-shadow:0 18px 40px rgba(2,10,25,0.6); border:1px solid rgba(255,255,255,0.03); color:var(--ngo-text-primary); }
+    </style>
+
+    <!-- Upload Modal (CSS :target) -->
+<div id="upload-modal" class="modal-overlay">
+    <div class="modal-card upload-modal">
+        <h2 class="modal-title">Upload Quiz File</h2>
+        <p class="modal-sub">Select a file from your device to upload.</p>
+
+        <label class="file-picker">
+            <input type="file" accept=".pdf,.doc,.docx,.ppt,.pptx,.jpg,.png" 
+                   class="material-file-input" onchange="if(this.files && this.files.length) location.hash='upload-success'">
+            <span class="file-picker-btn">Choose file</span>
+            <span class="file-picker-filename">No file chosen</span>
+        </label>
+
+        <div class="modal-actions">
+            <a href="#" class="btn btn-cancel">Cancel</a>
+            <!-- If you want an explicit upload button (not required with onchange), use a normal button that closes to success -->
+            <a href="#" class="btn btn-primary" onclick="if(false)return false;">Upload</a>
+        </div>
+    </div>
+</div>
+
+<!-- Upload Success Modal -->
+<div id="upload-success" class="modal-overlay">
+    <div class="modal-card upload-success-modal">
+        <a href="#" class="modal-back-link">← Back</a>
+        <h2 class="modal-title">Quiz Uploaded<br>Successfully!</h2>
+        <div class="modal-actions">
+            <a href="#" class="btn btn-primary modal-close">Close</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

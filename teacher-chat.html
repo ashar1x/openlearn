@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Chat - OpenLearn NGO Learning Platform</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap">
+    <style>
+        :root {
+            --ngo-navy: #0F172A;
+            --ngo-surface: #1E293B;
+            --ngo-border: #334155;
+            --ngo-accent: #00B4D8;
+            --ngo-highlight: #FFD700;
+            --ngo-text-primary: #E2E8F0;
+            --ngo-text-secondary: #94A3B8;
+            --ngo-success: #10B981;
+            --ngo-danger: #DC2626;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Open Sans', sans-serif;
+            --radius-sm: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--ngo-text-primary);
+            background-color: var(--ngo-navy);
+            overflow: hidden;
+        }
+
+        h1, h2, h3 {
+            font-family: var(--font-heading);
+        }
+
+        .chat-container {
+            display: flex;
+            height: 100vh;
+        }
+
+        .chat-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+            padding: 0 1.5rem;
+            background-color: var(--ngo-surface);
+            border-bottom: 1px solid var(--ngo-border);
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            background-color: rgba(0, 180, 216, 0.1);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: var(--radius-sm);
+            color: var(--ngo-accent);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .back-btn:hover {
+            background-color: rgba(0, 180, 216, 0.2);
+            border-color: var(--ngo-accent);
+        }
+
+        .back-btn svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        .student-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .student-name {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: var(--ngo-text-primary);
+        }
+
+        .student-status {
+            font-size: 0.85rem;
+            color: var(--ngo-text-secondary);
+        }
+
+        .status-online {
+            color: var(--ngo-success);
+        }
+
+        .chat-main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            background-color: var(--ngo-navy);
+        }
+
+        .message {
+            display: flex;
+            gap: 0.75rem;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.sent {
+            justify-content: flex-end;
+        }
+
+        .message-avatar {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .message.received .message-avatar {
+            background-color: rgba(0, 180, 216, 0.2);
+            color: var(--ngo-accent);
+        }
+
+        .message.sent .message-avatar {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--ngo-success);
+        }
+
+        .message-content {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            max-width: 60%;
+        }
+
+        .message.sent .message-content {
+            align-items: flex-end;
+        }
+
+        .message-bubble {
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-md);
+            line-height: 1.5;
+            word-wrap: break-word;
+        }
+
+        .message.received .message-bubble {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--ngo-text-primary);
+        }
+
+        .message.sent .message-bubble {
+            background-color: var(--ngo-accent);
+            color: var(--ngo-navy);
+            font-weight: 500;
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            color: var(--ngo-text-secondary);
+        }
+
+        .message.sent .message-time {
+            margin-right: 0.5rem;
+        }
+
+        .message.received .message-time {
+            margin-left: 0.5rem;
+        }
+
+        .chat-input-area {
+            display: flex;
+            align-items: flex-end;
+            gap: 0.75rem;
+            padding: 1rem 1.5rem;
+            background-color: var(--ngo-surface);
+            border-top: 1px solid var(--ngo-border);
+        }
+
+        .input-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1rem;
+            background-color: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 9999px;
+            transition: all 0.2s ease;
+        }
+
+        .input-wrapper:focus-within {
+            border-color: var(--ngo-accent);
+            background-color: rgba(0, 180, 216, 0.05);
+        }
+
+        .chat-input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            color: var(--ngo-text-primary);
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            resize: none;
+            max-height: 5rem;
+        }
+
+        .chat-input::placeholder {
+            color: var(--ngo-text-secondary);
+        }
+
+        .send-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.75rem;
+            height: 2.75rem;
+            background-color: var(--ngo-accent);
+            border: none;
+            border-radius: 50%;
+            color: var(--ngo-navy);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+
+        .send-btn:hover:not(:disabled) {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(0, 180, 216, 0.4);
+        }
+
+        .send-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .send-btn svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            gap: 1rem;
+            color: var(--ngo-text-secondary);
+            text-align: center;
+        }
+
+        .empty-state-icon {
+            width: 4rem;
+            height: 4rem;
+            opacity: 0.3;
+        }
+
+        @media (max-width: 768px) {
+            .chat-container {
+                flex-direction: column;
+            }
+
+            .message-content {
+                max-width: 85%;
+            }
+
+            .chat-header {
+                padding: 0 1rem;
+            }
+
+            .student-name {
+                font-size: 1rem;
+            }
+
+            .chat-messages {
+                padding: 1rem;
+            }
+
+            .chat-input-area {
+                padding: 0.75rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-main">
+            <div class="chat-header">
+                <div class="header-left">
+                    <a href="teacher-progress-tracker.html" class="back-btn">
+                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </a>
+                    <div class="student-info">
+                        <div class="student-name" id="studentNameHeader">Student Name</div>
+                        <div class="student-status"><span class="status-online">● Online</span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="empty-state">
+                    <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                    <p>No messages yet. Start the conversation!</p>
+                </div>
+            </div>
+
+            <div class="chat-input-area">
+                <div class="input-wrapper">
+                    <input 
+                        type="text" 
+                        class="chat-input" 
+                        id="messageInput" 
+                        placeholder="Type a message..." 
+                        aria-label="Type a message"
+                    >
+                </div>
+                <button class="send-btn" id="sendBtn" aria-label="Send message">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const studentName = urlParams.get('student') || 'Student';
+        const messages = [];
+
+        const chatMessages = document.getElementById('chatMessages');
+        const messageInput = document.getElementById('messageInput');
+        const sendBtn = document.getElementById('sendBtn');
+        const studentNameHeader = document.getElementById('studentNameHeader');
+
+        // Set student name in header
+        studentNameHeader.textContent = studentName;
+
+        // Load messages from storage
+        function loadMessages() {
+            const storageKey = `chat-${studentName}`;
+            const stored = localStorage.getItem(storageKey);
+            if (stored) {
+                messages.length = 0;
+                messages.push(...JSON.parse(stored));
+                renderMessages();
+            }
+        }
+
+        // Save messages to storage
+        function saveMessages() {
+            const storageKey = `chat-${studentName}`;
+            localStorage.setItem(storageKey, JSON.stringify(messages));
+        }
+
+        // Add message
+        function addMessage(text, isSent) {
+            const message = {
+                text,
+                isSent,
+                timestamp: new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' })
+            };
+            messages.push(message);
+            saveMessages();
+            renderMessages();
+        }
+
+        // Render messages
+        function renderMessages() {
+            if (messages.length === 0) {
+                chatMessages.innerHTML = `
+                    <div class="empty-state">
+                        <svg class="empty-state-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                        </svg>
+                        <p>No messages yet. Start the conversation!</p>
+                    </div>
+                `;
+                return;
+            }
+
+            chatMessages.innerHTML = messages.map(msg => `
+                <div class="message ${msg.isSent ? 'sent' : 'received'}">
+                    <div class="message-avatar">${msg.isSent ? 'T' : 'S'}</div>
+                    <div class="message-content">
+                        <div class="message-bubble">${escapeHtml(msg.text)}</div>
+                        <div class="message-time">${msg.timestamp}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Escape HTML to prevent XSS
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        // Send message
+        function sendMessage() {
+            const text = messageInput.value.trim();
+            if (text === '') return;
+
+            addMessage(text, true);
+            messageInput.value = '';
+            messageInput.focus();
+        }
+        function resetChat() {
+    const storageKey = `student-chat-${teacherName}`;
+    localStorage.removeItem(storageKey);
+    messages.length = 0; // Clear array
+    renderMessages();    // Re-render
+}
+
+        // Event listeners
+        sendBtn.addEventListener('click', sendMessage);
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendMessage();
+            }
+        });
+
+        // Load messages on page load
+        loadMessages();
+    </script>
+</body>
+</html>
